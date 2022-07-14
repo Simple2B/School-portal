@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:14.1
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - 127.0.0.1:${DB_PORT}:5432
+    environment:
+      POSTGRES_DB: ${PG_DB}
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      PGDATABASE: ${PG_DB}
+      PGUSER: ${PG_USER}
+      PGPASSWORD: ${PG_PASSWORD}
+
+volumes:
+  db_data:
