@@ -8,11 +8,15 @@ ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-INTERNAL_IPS = ["127.0.0.1"]
+INTERNAL_IPS = ("127.0.0.1",)
 
-INSTALLED_APPS.append("debug_toolbar")
+INSTALLED_APPS += ["debug_toolbar"]
 
-MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
+MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+
+DEBUG_TOOLBAR_CONFIG = {
+    "INTERCEPT_REDIRECTS": False,
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
