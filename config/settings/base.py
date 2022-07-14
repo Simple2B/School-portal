@@ -28,6 +28,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "Ensure you set a secret key, this is impor
 
 INSTALLED_APPS = [
     "home",
+    "faculties",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
