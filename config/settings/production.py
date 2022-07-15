@@ -12,7 +12,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-DATABASES = {"default": dj_database_url.config()}
+DATABASES = {"default": dj_database_url.config(default="sqlite:///db.sqlite3")}
 
 # configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
 CACHES = {"default": django_cache_url.config()}
