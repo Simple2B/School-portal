@@ -8,5 +8,5 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.admin.panels import FieldPanel
 
 
-class SupportHomePage(Page):
+class PeoplePage(Page):
     pass
