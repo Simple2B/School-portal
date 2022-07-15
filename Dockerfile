@@ -1,9 +1,6 @@
 # Use an official Python runtime based on Debian 10 as a parent image.
 FROM python:3.9
 
-# Add user that will be used in the container.
-RUN useradd wagtail
-
 # Set work directory
 WORKDIR /usr/src/app
 
@@ -43,16 +40,8 @@ COPY pyproject.toml .
 COPY poetry.lock .
 RUN poetry install --no-dev --no-interaction --no-ansi
 
-# Set this directory to be owned by the "wagtail" user. This Wagtail project
-# uses SQLite, the folder needs to be owned by the user that
-# will be writing to the database file.
-RUN chown wagtail:wagtail /usr/src/app
-
 # Copy the source code of the project into the container.
-COPY --chown=wagtail:wagtail . .
-
-# Use user "wagtail" to run the build commands below and the server itself.
-USER wagtail
+COPY . .
 
 # start gunicorn, using a wrapper script to allow us to easily add more commands to container startup:
 ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
