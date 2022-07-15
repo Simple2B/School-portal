@@ -3,6 +3,21 @@
 /static/
 *.sqlite3
 
+# Git
+.github/
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+.docker
+
+# .env files
+.env
+.env.sample
+
 # Python and others
 __pycache__
 *.pyc
@@ -18,10 +33,12 @@ node_modules/
 .vscode
 coverage
 .python-version
+poetry.toml
 
 # Distribution / packaging
 .Python
 env/
+.venv/
 build/
 develop-eggs/
 dist/
@@ -37,3 +54,4 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+tox.ini

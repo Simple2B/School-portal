@@ -163,5 +163,5 @@ WAGTAIL_I18N_ENABLED = True
 
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ("en", "English"),
-    ("ru", "Russian"),
+    ("ua", "Ukraine"),
 ]

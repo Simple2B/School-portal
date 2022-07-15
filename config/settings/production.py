@@ -1,4 +1,5 @@
 import dj_database_url
+import django_cache_url
 from .base import *  # noqa: F403, F401
 
 DEBUG = False
@@ -11,12 +12,14 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {"default": dj_database_url.config()}
+
+# configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
+CACHES = {"default": django_cache_url.config()}
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://localhost:8000"
+WAGTAILADMIN_BASE_URL = "http://site-cms.simple2b.net"
 
 LOGGING = {
     "version": 1,
