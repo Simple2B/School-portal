@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
-
-python manage.py migrate --noinput
+echo Run django migrations
+python manage.py migrate --noinput || exit 0
+echo Collect staticfiles
+(python manage.py collectstatic --noinput --clear &&
+touch static/.gitignore && echo '# Ignore everything in this directory'\\n'*'\\n'# Except this file'\\n'!.gitignore' >> static/.gitignore; exit 0)
 
 exec "$@"

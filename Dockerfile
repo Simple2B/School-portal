@@ -54,15 +54,9 @@ COPY --chown=wagtail:wagtail . .
 # Use user "wagtail" to run the build commands below and the server itself.
 USER wagtail
 
-# mark the destination for images as a volume
-VOLUME ["/usr/src/app/media/images/"]
-
 # start gunicorn, using a wrapper script to allow us to easily add more commands to container startup:
 ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
 RUN chmod a+x /usr/src/app/docker-entrypoint.sh
-
-# Collect static files.
-RUN python manage.py collectstatic --noinput --clear
 
 # Runtime command that executes when "docker run" is called, it does the
 # following:

@@ -22,7 +22,8 @@ services:
   web:
     build: .
     volumes:
-      - media-root:/usr/src/app/media
+      - ./static:/usr/src/app/static/
+      - ./media:/usr/src/app/media/
     ports:
       - 127.0.0.1:${WEB_PORT}:8000
     depends_on:
@@ -30,4 +31,3 @@ services:
       - redis
 volumes:
   db_data:
-  media-root:
