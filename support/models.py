@@ -8,7 +8,7 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.admin.panels import FieldPanel
 
 
-class AboutHomePage(Page):
+class SupportHomePage(Page):
     heading = RichTextField(
         null=False,
         blank=False,
@@ -26,7 +26,7 @@ class AboutHomePage(Page):
     ]
 
 
-class AboutPage(Page):
+class SupportPage(Page):
     heading = RichTextField(
         null=False,
         blank=False,
