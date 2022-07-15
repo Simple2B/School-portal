@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "international",
     "newsroom",
     "support",
+    "people",
     "search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
