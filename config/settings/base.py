@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+from django.utils.translation import gettext_lazy as _
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,8 +29,10 @@ SECRET_KEY = os.getenv("SECRET_KEY", "Ensure you set a secret key, this is impor
 # Application definition
 
 INSTALLED_APPS = [
+    # Custom apps
     "apps.base",
     "apps.search",
+    # Wagtail CMS
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -46,6 +50,7 @@ INSTALLED_APPS = [
     "wagtailfontawesome",
     "modelcluster",
     "taggit",
+    # Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -55,17 +60,19 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Common functionality
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.CommonMiddleware",
+    # Security
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    # CMS functionality
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
-DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
@@ -161,6 +168,9 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAIL_I18N_ENABLED = True
 
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
-    ("en", "English"),
-    ("ua", "Ukraine"),
+    ("en-us", _("English")),
 ]
+
+# Sets default for primary key IDs
+# See https://docs.djangoproject.com/en/4.0/ref/models/fields/#bigautofield
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
