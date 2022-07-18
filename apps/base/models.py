@@ -8,7 +8,27 @@ from wagtail.embeds.blocks import EmbedBlock
 from wagtail.admin.panels import FieldPanel
 
 
-class AboutHomePage(Page):
+class HomePage(Page):
+    body = StreamField(
+        [
+            ("heading", CharBlock()),
+            ("paragraph", RichTextBlock()),
+            ("image", ImageChooserBlock()),
+            ("video", EmbedBlock()),
+        ],
+        block_counts={
+            "heading": {"min_num": 1},
+            "image": {"max_num": 5},
+            "video": {"max_num": 5},
+        },
+        use_json_field=True,
+        null=True,
+        blank=True,
+    )
+    content_panels = Page.content_panels + [FieldPanel("body")]
+
+
+class StandardIndexPage(Page):
     heading = RichTextField(
         null=False,
         blank=False,
@@ -20,13 +40,30 @@ class AboutHomePage(Page):
         on_delete=models.SET_NULL,
         related_name="+",
     )
+    overview_text = StreamField(
+        [
+            ("heading", CharBlock()),
+            ("paragraph", RichTextBlock()),
+            ("image", ImageChooserBlock()),
+            ("video", EmbedBlock()),
+        ],
+        block_counts={
+            "heading": {"min_num": 1},
+            "image": {"max_num": 5},
+            "video": {"max_num": 5},
+        },
+        use_json_field=True,
+        null=True,
+        blank=True,
+    )
     content_panels = Page.content_panels + [
         FieldPanel("heading"),
         FieldPanel("banner_image"),
+        FieldPanel("overview_text"),
     ]
 
 
-class AboutPage(Page):
+class StandardPage(Page):
     heading = RichTextField(
         null=False,
         blank=False,

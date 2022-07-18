@@ -27,15 +27,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "Ensure you set a secret key, this is impor
 # Application definition
 
 INSTALLED_APPS = [
-    "home",
-    "about",
-    "academics",
-    "research",
-    "international",
-    "newsroom",
-    "support",
-    "people",
-    "search",
+    "apps.base",
+    "apps.search",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
