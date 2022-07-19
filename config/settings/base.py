@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "wagtail.locales",
     "wagtail.contrib.modeladmin",
     "wagtail.contrib.simple_translation",
+    "wagtail.contrib.settings",
     "wagtail",
     "wagtailfontawesome",
     "modelcluster",
