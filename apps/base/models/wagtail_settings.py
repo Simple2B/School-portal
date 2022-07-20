@@ -13,9 +13,9 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 from wagtail.images import get_image_model_string
-from base.fields import MonospaceField
-from base.settings import crx_settings
-from base.models.snippets import Navbar, Footer
+from apps.base.fields import MonospaceField
+from apps.base.settings import crx_settings
+from apps.base.models.snippets import Navbar, Footer
 
 
 @register_setting(icon="cr-desktop")

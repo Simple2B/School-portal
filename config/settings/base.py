@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "modelcluster",
     "taggit",
     "wagtailcache",
+    "wagtailseo",
     # Django
     "django.contrib.admin",
     "django.contrib.auth",

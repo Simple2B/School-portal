@@ -19,8 +19,12 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.images import get_image_model_string
 
-from base.blocks import HTML_STREAMBLOCKS, LAYOUT_STREAMBLOCKS, NAVIGATION_STREAMBLOCKS
-from base.settings import crx_settings
+from apps.base.blocks import (
+    HTML_STREAMBLOCKS,
+    LAYOUT_STREAMBLOCKS,
+    NAVIGATION_STREAMBLOCKS,
+)
+from apps.base.settings import crx_settings
 
 
 @register_snippet

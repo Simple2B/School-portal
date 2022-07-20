@@ -9,13 +9,13 @@ from django.utils.html import mark_safe
 from wagtail.core.models import Collection
 from wagtail.images.models import Image
 
-from base import utils, __version__
-from base.blocks import CoderedAdvSettings
-from base.forms import SearchForm
-from base.models.snippets import Navbar, Footer
-from base.settings import crx_settings as crx_settings_obj
-from base.settings import get_bootstrap_setting
-from base.models.wagtail_settings import LayoutSettings
+from apps.base import utils
+from apps.base.blocks import CoderedAdvSettings
+from apps.base.forms import SearchForm
+from apps.base.models.snippets import Navbar, Footer
+from apps.base.settings import crx_settings as crx_settings_obj
+from apps.base.settings import get_bootstrap_setting
+from apps.base.models.wagtail_settings import LayoutSettings
 
 register = template.Library()
 

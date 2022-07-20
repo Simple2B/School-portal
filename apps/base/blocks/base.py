@@ -8,7 +8,7 @@ from wagtail.core.models import Collection
 from wagtail.core.utils import resolve_model_string
 from wagtail.documents.blocks import DocumentChooserBlock
 
-from base.settings import crx_settings
+from apps.base.settings import crx_settings
 
 
 class ClassifierTermChooserBlock(blocks.FieldBlock):

@@ -3,9 +3,9 @@ from django import forms
 
 from wagtail.core import blocks
 
-from base.wagtail_flexible_forms import blocks as form_blocks
-from base.blocks.base import BaseBlock, AdvSettings
-from base.forms import SecureFileField
+from apps.base.wagtail_flexible_forms import blocks as form_blocks
+from apps.base.blocks.base import BaseBlock, AdvSettings
+from apps.base.forms import SecureFileField
 
 
 class FormAdvSettings(AdvSettings):
@@ -88,7 +88,7 @@ class StreamFormDateFieldBlock(form_blocks.DateFieldBlock, FormBlockMixin):
         label = _("Date")
         icon = "date"
 
-    field_class = blocks.DateField
+    field_class = forms.DateField
     widget = forms.DateInput
 
 

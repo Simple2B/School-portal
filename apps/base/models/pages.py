@@ -58,24 +58,25 @@ from wagtail.utils.decorators import cached_classmethod
 from wagtailcache.cache import WagtailCacheMixin
 from wagtailseo.models import SeoMixin, TwitterCard
 from wagtailseo.utils import get_struct_data_images, StructDataEncoder
+from wagtail.fields import StreamField
 
-from base import utils
-from base.blocks import (
+from apps.base import utils
+from apps.base.blocks import (
     CONTENT_STREAMBLOCKS,
     LAYOUT_STREAMBLOCKS,
     STREAMFORM_BLOCKS,
     ContentWallBlock,
 )
-from base.fields import StreamField, ColorField
-from base.forms import FormBuilder, SubmissionsListView
-from base.models.snippets import ClassifierTerm
-from base.models.wagtail_settings import (
+from apps.base.fields import ColorField
+from apps.base.forms import FormBuilder, SubmissionsListView
+from apps.base.models.snippets import ClassifierTerm
+from apps.base.models.wagtail_settings import (
     GeneralSettings,
     GoogleApiSettings,
     LayoutSettings,
 )
-from base.wagtail_flexible_forms.blocks import FormFieldBlock, FormStepBlock
-from base.wagtail_flexible_forms.models import (
+from apps.base.wagtail_flexible_forms.blocks import FormFieldBlock, FormStepBlock
+from apps.base.wagtail_flexible_forms.models import (
     Step,
     Steps,
     StreamFormMixin,
@@ -83,8 +84,8 @@ from base.wagtail_flexible_forms.models import (
     SessionFormSubmission,
     SubmissionRevision,
 )
-from base.settings import crx_settings
-from base.widgets import ClassifierSelectWidget
+from apps.base.settings import crx_settings
+from apps.base.widgets import ClassifierSelectWidget
 
 
 if TYPE_CHECKING:

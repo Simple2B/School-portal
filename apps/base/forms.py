@@ -15,8 +15,8 @@ from wagtail.contrib.forms.views import (
 from wagtail.contrib.forms.forms import FormBuilder as FB
 from wagtail.contrib.forms.models import AbstractFormField
 
-from base.settings import crx_settings
-from base.utils import attempt_protected_media_value_conversion
+from apps.base.settings import crx_settings
+from apps.base.utils import attempt_protected_media_value_conversion
 
 FORM_FIELD_CHOICES = (
     (

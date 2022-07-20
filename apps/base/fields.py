@@ -1,7 +1,7 @@
 from django.db import models
 from django.forms.widgets import Textarea
 
-from base.widgets import ColorPickerWidget
+from apps.base.widgets import ColorPickerWidget
 
 
 class ColorField(models.CharField):
