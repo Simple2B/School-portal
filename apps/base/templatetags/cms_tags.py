@@ -10,7 +10,7 @@ from wagtail.core.models import Collection
 from wagtail.images.models import Image
 
 from apps.base import utils
-from apps.base.blocks import CoderedAdvSettings
+from apps.base.blocks import AdvSettings
 from apps.base.forms import SearchForm
 from apps.base.models.snippets import Navbar, Footer
 from apps.base.settings import crx_settings as crx_settings_obj
@@ -22,7 +22,7 @@ register = template.Library()
 
 @register.filter
 def is_advanced_setting(obj):
-    return CoderedAdvSettings in (obj.__class__,) + obj.__class__.__bases__
+    return AdvSettings in (obj.__class__,) + obj.__class__.__bases__
 
 
 @register.filter
