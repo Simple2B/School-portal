@@ -1,8 +1,13 @@
+"""
+Snippets are for content that is re-usable in nature.
+"""
+
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
+from wagtail.fields import StreamField
 from wagtail.admin.edit_handlers import (
     FieldPanel,
     InlinePanel,
@@ -15,7 +20,6 @@ from wagtail.snippets.models import register_snippet
 from wagtail.images import get_image_model_string
 
 from base.blocks import HTML_STREAMBLOCKS, LAYOUT_STREAMBLOCKS, NAVIGATION_STREAMBLOCKS
-from base.fields import CoderedStreamField
 from base.settings import crx_settings
 
 
@@ -127,7 +131,7 @@ class CarouselSlide(Orderable, models.Model):
         verbose_name=_("Custom ID"),
     )
 
-    content = CoderedStreamField(HTML_STREAMBLOCKS, blank=True)
+    content = StreamField(HTML_STREAMBLOCKS, blank=True)
 
     panels = [
         ImageChooserPanel("image"),
@@ -248,7 +252,7 @@ class Navbar(models.Model):
         blank=True,
         verbose_name=_("Custom ID"),
     )
-    menu_items = CoderedStreamField(
+    menu_items = StreamField(
         NAVIGATION_STREAMBLOCKS,
         verbose_name=_("Navigation links"),
         blank=True,
@@ -293,7 +297,7 @@ class Footer(models.Model):
         blank=True,
         verbose_name=_("Custom ID"),
     )
-    content = CoderedStreamField(
+    content = StreamField(
         LAYOUT_STREAMBLOCKS,
         verbose_name=_("Content"),
         blank=True,
@@ -329,7 +333,7 @@ class ReusableContent(models.Model):
         max_length=255,
         verbose_name=_("Name"),
     )
-    content = CoderedStreamField(
+    content = StreamField(
         LAYOUT_STREAMBLOCKS,
         verbose_name=_("content"),
         blank=True,
@@ -354,7 +358,7 @@ class ContentWall(models.Model):
         max_length=255,
         verbose_name=_("Name"),
     )
-    content = CoderedStreamField(
+    content = StreamField(
         LAYOUT_STREAMBLOCKS,
         verbose_name=_("Content"),
         blank=True,
@@ -387,7 +391,7 @@ class ContentWall(models.Model):
         return self.name
 
 
-class CoderedEmail(ClusterableModel):
+class Email(ClusterableModel):
     """
     General purpose abstract clusterable model used for holding email information.
     Most likely this should be subclassed with addition of a ParentalKey.
@@ -395,7 +399,7 @@ class CoderedEmail(ClusterableModel):
 
     class Meta:
         abstract = True
-        verbose_name = _("CodeRed Email")
+        verbose_name = _("Email")
 
     to_address = models.CharField(
         max_length=255,
