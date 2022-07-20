@@ -4,13 +4,13 @@ from wagtail.models import Page
 from wagtail.fields import StreamField
 from wagtail.core.blocks import RichTextBlock, CharBlock
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.images import get_image_model_string
 from wagtail.embeds.blocks import EmbedBlock
-from wagtail.admin.edit_handlers import (
-    FieldPanel,
-)
+from wagtail.admin.edit_handlers import FieldPanel
 
 
 class HomePage(Page):
+    parent_page_types = []
     body = StreamField(
         [
             ("heading", CharBlock(label=_("Heading"))),
@@ -31,6 +31,10 @@ class HomePage(Page):
 
 
 class StandardPage(Page):
+    class Meta:
+        verbose_name = "Standard"
+        ordering = ["-first_published_at"]
+
     banner_image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,

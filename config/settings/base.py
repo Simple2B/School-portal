@@ -47,10 +47,14 @@ INSTALLED_APPS = [
     "wagtail.contrib.modeladmin",
     "wagtail.contrib.simple_translation",
     "wagtail.contrib.settings",
+    "wagtail.contrib.styleguide",
     "wagtail",
+    # Wagtail CRX
+    "bootstrap5",
     "wagtailfontawesome",
     "modelcluster",
     "taggit",
+    "wagtailcache",
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -170,6 +174,7 @@ WAGTAIL_I18N_ENABLED = True
 
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ("en-us", _("English")),
+    ("uk-ua", _("Ukrainian")),
 ]
 
 # Sets default for primary key IDs

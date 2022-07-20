@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.urls import include, path
+from django.urls import include, path, re_path
 from django.contrib import admin
 
 from wagtail.admin import urls as wagtailadmin_urls
@@ -8,13 +8,27 @@ from wagtail.documents import urls as wagtaildocs_urls
 from wagtail.contrib.sitemaps.views import sitemap
 
 from apps.search import views as search_views
+from apps.base.settings import crx_settings
+from apps.base.views import favicon, robots, serve_protected_file
 
 urlpatterns = [
+    # Admin
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
+    # Documents
     path("documents/", include(wagtaildocs_urls)),
+    # Search
     path("search/", search_views.search, name="search"),
+    # Sitemap
     path("sitemap.xml", sitemap),
+    path(r"favicon.ico", favicon, name="codered_favicon"),
+    path(r"robots.txt", robots, name="codered_robots"),
+    path(r"sitemap.xml", sitemap, name="codered_sitemap"),
+    re_path(
+        r"^{0}(?P<path>.*)$".format(crx_settings.CRX_PROTECTED_MEDIA_URL.lstrip("/")),
+        serve_protected_file,
+        name="serve_protected_file",
+    ),
 ]
 
 
