@@ -27,7 +27,7 @@ class ClassifierTermChooserBlock(blocks.FieldBlock):
 
     @cached_property
     def target_model(self):
-        return resolve_model_string("coderedcms.ClassifierTerm")
+        return resolve_model_string("base.ClassifierTerm")
 
     @cached_property
     def field(self):
