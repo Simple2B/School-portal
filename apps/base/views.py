@@ -8,8 +8,8 @@ from django.http import (
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
-from base.models import LayoutSettings
-from base.settings import crx_settings
+from apps.base.models import LayoutSettings
+from apps.base.settings import crx_settings
 
 
 @login_required

@@ -313,36 +313,36 @@ class AbstractPage(WagtailCacheMixin, SeoMixin, Page, metaclass=PageMeta):
             self.index_order_by = self.index_order_by_default
             self.index_show_subpages = self.index_show_subpages_default
 
-    @cached_classmethod
-    def get_edit_handler(cls):
-        """
-        Override to "lazy load" the panels overridden by subclasses.
-        """
-        panels = [
-            ObjectList(
-                cls.content_panels
-                + cls.body_content_panels
-                + cls.bottom_content_panels,
-                heading=_("Content"),
-            ),
-            ObjectList(cls.classify_panels, heading=_("Classify")),
-            ObjectList(cls.layout_panels, heading=_("Layout")),
-            ObjectList(cls.promote_panels, heading=_("SEO"), classname="seo"),
-            ObjectList(
-                cls.settings_panels, heading=_("Settings"), classname="settings"
-            ),
-        ]
+    # @cached_classmethod
+    # def get_edit_handler(cls):
+    #     """
+    #     Override to "lazy load" the panels overridden by subclasses.
+    #     """
+    #     panels = [
+    #         ObjectList(
+    #             cls.content_panels
+    #             + cls.body_content_panels
+    #             + cls.bottom_content_panels,
+    #             heading=_("Content"),
+    #         ),
+    #         ObjectList(cls.classify_panels, heading=_("Classify")),
+    #         ObjectList(cls.layout_panels, heading=_("Layout")),
+    #         ObjectList(cls.promote_panels, heading=_("SEO"), classname="seo"),
+    #         ObjectList(
+    #             cls.settings_panels, heading=_("Settings"), classname="settings"
+    #         ),
+    #     ]
 
-        if cls.integration_panels:
-            panels.append(
-                ObjectList(
-                    cls.integration_panels,
-                    heading="Integrations",
-                    classname="integrations",
-                )
-            )
+    #     if cls.integration_panels:
+    #         panels.append(
+    #             ObjectList(
+    #                 cls.integration_panels,
+    #                 heading="Integrations",
+    #                 classname="integrations",
+    #             )
+    #         )
 
-        return TabbedInterface(panels).bind_to(model=cls)
+    #     return TabbedInterface(panels).bind_to(model=cls)
 
     @property
     def seo_logo(self) -> "Optional[AbstractImage]":

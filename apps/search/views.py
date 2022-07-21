@@ -3,9 +3,9 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage, PageNotAnIn
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 from wagtail.core.models import Page, get_page_models
-from base.forms import SearchForm
-from base.models import GeneralSettings
-from base.templatetags.cms_tags import get_name_of_class
+from apps.base.forms import SearchForm
+from apps.base.models import GeneralSettings
+from apps.base.templatetags.cms_tags import get_name_of_class
 
 
 def search(request):
