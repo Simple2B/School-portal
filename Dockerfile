@@ -18,7 +18,7 @@ ENV PIP_DISABLE_PIP_VERSION_CHECK on
 # 6. Keeps Poetry from automatically creates virtual environments
 ENV POETRY_VIRTUALENVS_CREATE false
 # 7. Add custom environment variables needed by Django or your settings file here:
-ENV DJANGO_SETTINGS_MODULE=config.settings.production
+ENV DJANGO_SETTINGS_MODULE=config.settings.prod
 
 # Install system packages required by Wagtail and Django.
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
