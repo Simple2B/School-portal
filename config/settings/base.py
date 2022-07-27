@@ -51,11 +51,9 @@ INSTALLED_APPS = [
     "wagtail",
     # Wagtail CRX
     "bootstrap5",
-    "wagtailfontawesome",
     "modelcluster",
+    "wagtailfontawesome",
     "taggit",
-    "wagtailcache",
-    "wagtailseo",
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -152,10 +150,10 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/4.0/ref/contrib/staticfiles/#manifeststaticfilesstorage
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(PROJECT_DIR, "staticfiles")
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
 MEDIA_URL = "/media/"
 
 

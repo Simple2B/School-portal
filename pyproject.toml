@@ -6,21 +6,20 @@ authors = ["Aleksandr <amvorobei@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-wagtail = "^3.0.1"
-Django = "^4.0.6"
-django-debug-toolbar = "^3.5.0"
-python-dotenv = "^0.20.0"
-dj-database-url = "^0.5.0"
-wagtailfontawesome = "^1.2.1"
-django-cache-url = "^3.4.2"
-psycopg2 = "^2.9.3"
 gunicorn = "^20.1.0"
+Django = "^4.0.6"
+wagtail = "^3.0.1"
+python-dotenv = "^0.20.0"
+psycopg2-binary = "^2.9.3"
+dj-database-url = "^0.5.0"
+django-cache-url = "^3.4.2"
 django-bootstrap-v5 = "^1.0.11"
-wagtail-cache = "^2.1.0"
-geocoder = "^1.38.1"
-wagtail-seo = "^2.0.1"
+wagtailfontawesome = "^1.2.1"
+
+
 
 [tool.poetry.dev-dependencies]
+django-debug-toolbar = "^3.5.0"
 black = "^22.6.0"
 flake8 = "^4.0.1"
 
