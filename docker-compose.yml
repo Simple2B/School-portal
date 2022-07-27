@@ -1,7 +1,7 @@
 version: '3.9'
 services:
   db:
-    image: postgres:14.1
+    image: postgres:12
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
@@ -22,7 +22,7 @@ services:
   web:
     build: .
     volumes:
-      - ./static:/usr/src/app/staticfiles/
+      - ./staticfiles:/usr/src/app/staticfiles/
       - ./media:/usr/src/app/media/
     ports:
       - 127.0.0.1:${WEB_PORT}:8000
