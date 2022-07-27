@@ -56,4 +56,4 @@ RUN chmod a+x /usr/src/app/docker-entrypoint.sh
 #   PRACTICE. The database should be migrated manually or using the release
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
-CMD set -xe; gunicorn --bind 0.0.0.0:8000 config.wsgi:application --workers 2
+CMD set -xe; gunicorn --bind 0.0.0.0:8001 config.wsgi:application --workers 2
