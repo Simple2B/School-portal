@@ -22,9 +22,10 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-CSRF_TRUSTED_ORIGINS = ["https://site-cms.simple2b.net/"]
-
-CORS_REPLACE_HTTPS_REFERER = True
+CSRF_TRUSTED_ORIGINS = [
+    "https://site-cms.simple2b.net/",
+    "http://site-cms.simple2b.net/",
+]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY", "Ensure you set a secret key, this is important!")
