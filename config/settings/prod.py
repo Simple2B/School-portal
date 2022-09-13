@@ -15,7 +15,15 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DATABASES = {"default": dj_database_url.config(default="sqlite:///db.sqlite3")}
 
 # configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
-CACHES = {"default": django_cache_url.config()}
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://redis:6379/',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash

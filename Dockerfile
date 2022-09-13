@@ -3,7 +3,6 @@ FROM python:3.9
 
 # Set work directory
 WORKDIR /usr/src/app
-
 # Set environment variables.
 # 1. Force Python stdout and stderr streams to be unbuffered.
 ENV PYTHONUNBUFFERED=1
@@ -18,7 +17,7 @@ ENV PIP_DISABLE_PIP_VERSION_CHECK on
 # 6. Keeps Poetry from automatically creates virtual environments
 ENV POETRY_VIRTUALENVS_CREATE false
 # 7. Add custom environment variables needed by Django or your settings file here:
-ENV DJANGO_SETTINGS_MODULE=config.settings.prod
+ENV DJANGO_SETTINGS_MODULE=config.settings.dev
 
 # Install system packages required by Wagtail and Django.
 RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-recommends \
@@ -28,24 +27,39 @@ RUN apt-get update --yes --quiet && apt-get install --yes --quiet --no-install-r
     libjpeg62-turbo-dev \
     zlib1g-dev \
     libwebp-dev \
- && rm -rf /var/lib/apt/lists/*
+    redis-server    \
+    redis   \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-ENV PATH="${PATH}:/root/.poetry/bin"
-RUN poetry self update
+# RUN pip install poetry
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/etc/poetry python3 -
+RUN PATH="${PATH}:/etc/poetry/bin"
+# RUN export PATH="${PATH}:/etc/poetry/bin"
+
+
+
+
+
+# RUN PATH="$HOME/.poetry/bin:$PATH"
+COPY poetry.lock .
+COPY pyproject.toml .
+
 
 # Install the project requirements.
-COPY pyproject.toml .
-COPY poetry.lock .
-RUN poetry install --no-dev --no-interaction --no-ansi
+# RUN poetry shell
+
+RUN POETRY_VIRTUALENVS_CREATE=false /etc/poetry/bin/poetry install --no-dev --no-interaction --no-ansi
 
 # Copy the source code of the project into the container.
 COPY . .
 
+
 # start gunicorn, using a wrapper script to allow us to easily add more commands to container startup:
-ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
 RUN chmod a+x /usr/src/app/docker-entrypoint.sh
+ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
+
+
 
 # Runtime command that executes when "docker run" is called, it does the
 # following:
@@ -56,4 +70,4 @@ RUN chmod a+x /usr/src/app/docker-entrypoint.sh
 #   PRACTICE. The database should be migrated manually or using the release
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
-CMD set -xe; gunicorn --bind 0.0.0.0:8000 config.wsgi:application --workers 2
+# CMD set -xe; gunicorn --bind 0.0.0.0:8000 config.wsgi:application --workers 2

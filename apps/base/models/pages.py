@@ -13,7 +13,6 @@ from wagtail.admin.panels import (
 from wagtail.fields import RichTextField, StreamField
 from wagtail.models import Collection, Page
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField
-
 from apps.base.blocks import BaseStreamBlock
 
 
