@@ -1,9 +1,4 @@
-from email.policy import default
-from pyexpat import model
-from random import choices
-from secrets import choice
-from statistics import mode
-from unittest.util import _MAX_LENGTH
+import black
 from django.db import models
 
 from wagtail.models import Page, Collection
@@ -13,12 +8,12 @@ from modelcluster.fields import ParentalKey
 
 class ImagesGallaryPage(Page):
     image = models.ForeignKey(
-            "wagtailimages.Image",
-            null=True,
-            blank=True, 
-            on_delete=models.SET_NULL, 
-            related_name="+"
-        )
+        "wagtailimages.Image",
+        null=True,
+        blank=True, 
+        on_delete=models.SET_NULL, 
+        related_name="+"
+    )
 
     collection = models.ForeignKey(
         Collection, 
@@ -28,7 +23,7 @@ class ImagesGallaryPage(Page):
         related_name="+"
     )
 
-    school_class = ParentalKey("SchoolClassPage", on_delete=models.CASCADE, related_name="gallery_images")
+    school_class = ParentalKey("SchoolClassPage", null=True, on_delete=models.SET_NULL, related_name="gallery_images")
 
     content_panels = Page.content_panels + [
         FieldPanel("image"),
@@ -40,7 +35,7 @@ class ImagesGallaryPage(Page):
 class InfoPage(Page):
     """news, about_us, contacts"""
     text = models.TextField()
-    images = ParentalKey("ImagesGallaryPage", null=True, on_delete=models.SET_NULL, related_name="info_page")
+    images = ParentalKey("ImagesGallaryPage", null=True, on_delete=models.SET_NULL, related_name="info_page", blank=True)
 
     choices = [
         ("news", "News"),
@@ -59,7 +54,7 @@ class InfoPage(Page):
 
 class NewsItemsPage(Page):
     def get_context(self, request):
-        news = InfoPage.objects.live().filter(type="news")
+        news = InfoPage.objects.filter(type="news")
         context = super().get_context(request)
         context['news'] = news
         return context
@@ -80,7 +75,7 @@ class Profile(Page):
         ("admin", "Admin")
     ] 
     role = models.CharField(max_length=80, choices=role_choices)
-    school_class = models.ForeignKey(SchoolClassPage, null=True, on_delete=models.SET_NULL, related_name="member")
+    school_class = models.ForeignKey(SchoolClassPage, null=True, blank=True, on_delete=models.SET_NULL, related_name="member")
 
     content_panels = Page.content_panels + [
         FieldPanel("name"),
@@ -92,13 +87,18 @@ class Profile(Page):
 
 
 class SchedulePage(Page): pass
+    # content_panels = Page.content_panels + [
+    #     InlinePanel("lessons")
+    # ]
 
 
 class LessonPage(Page):
     time = models.CharField(max_length=5)   #add validatin like "\d{2}:\d{2}"
     teacher = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL, related_name="lessons")
     school_class = models.ForeignKey(SchoolClassPage, null=True, on_delete=models.SET_NULL, related_name="lessons")
-    schedule = models.ForeignKey(SchedulePage, null=True, on_delete=models.SET_NULL, related_name="lessons")
+    schedule = ParentalKey(SchedulePage, null=True, on_delete=models.SET_NULL, related_name="lessons")
+
+    template = "app/lesson_page.html"
 
     content_panels = Page.content_panels + [
         FieldPanel("time"),
