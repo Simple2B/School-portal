@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    <h1>News</h1>
+    {{ page.news }}
+    {% for n in news %}
+        {{ n.title }}<br>
+    {% endfor %}
+
+{% endblock %}

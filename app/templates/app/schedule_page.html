@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    <h1>Schedule page</h1>
+    {% for l in page.lessons.all %}
+        {{ l.title }}<br>
+        {{ l.time }}<br>
+        {{ l.school_class.title }}<br>
+        {{ l.teacher.name }} {{ l.teacher.surname }}<br>
+        -----------------------------------<br>
+    {% endfor %}
+
+
+{% endblock %}
