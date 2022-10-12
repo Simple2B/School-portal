@@ -4,6 +4,10 @@ from django.db import models
 from wagtail.models import Page, Collection
 from wagtail.admin.panels import FieldPanel, InlinePanel
 from modelcluster.fields import ParentalKey
+from wagtail.fields import StreamField
+
+
+from .blocks import BaseStreamBlock
 
 
 class ImagesGallaryPage(Page):
@@ -34,8 +38,6 @@ class ImagesGallaryPage(Page):
 
 class InfoPage(Page):
     """news, about_us, contacts"""
-    text = models.TextField()
-    images = ParentalKey("ImagesGallaryPage", null=True, on_delete=models.SET_NULL, related_name="info_page", blank=True)
 
     choices = [
         ("news", "News"),
@@ -45,9 +47,12 @@ class InfoPage(Page):
 
     type = models.CharField(choices=choices, max_length=20, default="news")
 
+    body = StreamField(
+        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+    )
+
     content_panels = Page.content_panels + [
-        FieldPanel("images"),
-        FieldPanel("text"),
+        FieldPanel("body"),
         FieldPanel("type"),
     ]
 
