@@ -3,7 +3,7 @@ from django.db import models
 
 from wagtail.models import Page, Collection
 from wagtail.admin.panels import FieldPanel, InlinePanel
-from modelcluster.fields import ParentalKey
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.fields import StreamField
 
 
@@ -27,12 +27,9 @@ class ImagesGallaryPage(Page):
         related_name="+"
     )
 
-    school_class = ParentalKey("SchoolClassPage", null=True, on_delete=models.SET_NULL, related_name="gallery_images")      # will be better to replace relation to other classes
-
     content_panels = Page.content_panels + [
         FieldPanel("image"),
         FieldPanel("collection"),
-        FieldPanel("school_class")
     ]
 
 
@@ -44,7 +41,12 @@ class NewsItemsPage(Page):
         return context
 
 
-class SchoolClassPage(Page): pass
+class SchoolClassPage(Page):
+    gallery_images = ParentalManyToManyField("ImagesGallaryPage", blank=True, related_name="school_class")
+
+    content_panels = Page.content_panels + [
+        FieldPanel("gallery_images")
+    ]
 
 
 class Profile(Page):
@@ -118,7 +120,25 @@ class InfoPage(Page):
 
 class HomePage(Page): 
     """Page with news and photos and additional settings."""
-    pass
+
+    def get_context(self, request):
+        news = InfoPage.objects.filter(type="news")
+        context = super().get_context(request)
+        context['news'] = news
+        return context
+
+    gallery_images = ParentalManyToManyField("ImagesGallaryPage", blank=True, related_name="home_page")
+
+    body = StreamField(
+        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+    )
+
+    template = "app/test_home_page.html"
+
+    content_panels = Page.content_panels + [
+        FieldPanel("gallery_images"),
+        FieldPanel("body")
+    ]
 
 
 class ProfilePage(Page): pass
