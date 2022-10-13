@@ -27,33 +27,12 @@ class ImagesGallaryPage(Page):
         related_name="+"
     )
 
-    school_class = ParentalKey("SchoolClassPage", null=True, on_delete=models.SET_NULL, related_name="gallery_images")
+    school_class = ParentalKey("SchoolClassPage", null=True, on_delete=models.SET_NULL, related_name="gallery_images")      # will be better to replace relation to other classes
 
     content_panels = Page.content_panels + [
         FieldPanel("image"),
         FieldPanel("collection"),
         FieldPanel("school_class")
-    ]
-
-
-class InfoPage(Page):
-    """news, about_us, contacts"""
-
-    choices = [
-        ("news", "News"),
-        ("about_us", "About_us"),
-        ("contacts", "Contacts")
-    ]
-
-    type = models.CharField(choices=choices, max_length=20, default="news")
-
-    body = StreamField(
-        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
-    )
-
-    content_panels = Page.content_panels + [
-        FieldPanel("body"),
-        FieldPanel("type"),
     ]
 
 
@@ -111,3 +90,43 @@ class LessonPage(Page):
         FieldPanel("school_class"),
         FieldPanel("schedule")
     ]
+
+
+#---------------------------------------------------------PAGES----------------------------------------------------------
+
+
+class InfoPage(Page):
+    """news, about_us, contacts"""
+
+    choices = [
+        ("news", "News"),
+        ("about_us", "About_us"),
+        ("contacts", "Contacts")
+    ]
+
+    type = models.CharField(choices=choices, max_length=20, default="news")
+
+    body = StreamField(
+        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("body"),
+        FieldPanel("type"),
+    ]
+
+
+class HomePage(Page): 
+    """Page with news and photos and additional settings."""
+    pass
+
+
+class ProfilePage(Page): pass
+
+
+class ListPage(Page):
+    """
+        Class that contains list of objects of Root directory.
+        Not sure about this class.
+    """
+    pass
