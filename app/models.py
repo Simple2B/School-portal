@@ -1,5 +1,6 @@
 import black
 from django.db import models
+# from django.contrib.auth.models import AbstractUser
 
 from wagtail.models import Page, Collection
 from wagtail.admin.panels import FieldPanel, InlinePanel
@@ -53,7 +54,13 @@ class Profile(Page):
     name = models.CharField(max_length=80)
     surname = models.CharField(max_length=80)
     age = models.CharField(max_length=80)
-    
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True, 
+        on_delete=models.SET_NULL, 
+        related_name="+"
+    )
     role_choices = [
         ("student", "Student"),
         ("teacher", "Teacher"),
@@ -67,6 +74,7 @@ class Profile(Page):
         FieldPanel("name"),
         FieldPanel("surname"),
         FieldPanel("age"),
+        FieldPanel("image"),
         FieldPanel("role"),
         FieldPanel("school_class"),
     ]
@@ -141,7 +149,20 @@ class HomePage(Page):
     ]
 
 
-class ProfilePage(Page): pass
+class ProfilePage(Page):
+    def get_context(self, request):
+        profile = Profile.objects.get(pk=request.user.pk)
+        context = super().get_context(request)
+        context['profile'] = profile
+        return context
+    
+    body = StreamField(
+        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("body")
+    ]
 
 
 class ListPage(Page):
