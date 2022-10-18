@@ -8,6 +8,7 @@ packages = [{include = "school_portal"}]
 
 [tool.poetry.dependencies]
 python = "3.9.5"
+django-allauth = "^0.51.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"

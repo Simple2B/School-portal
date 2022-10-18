@@ -1,6 +1,8 @@
+from random import choices
 import black
 from django.db import models
-# from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser
+from requests import request
 
 from wagtail.models import Page, Collection
 from wagtail.admin.panels import FieldPanel, InlinePanel
@@ -102,7 +104,7 @@ class LessonPage(Page):
     ]
 
 
-#---------------------------------------------------------PAGES----------------------------------------------------------
+#-----------------------------------------------------PAGES-----------------------------------------------------
 
 
 class InfoPage(Page):
@@ -171,3 +173,17 @@ class ListPage(Page):
         Not sure about this class.
     """
     pass
+
+
+#-----------------------------------------------------CUSTOM USER MODEL-----------------------------------------------------
+
+
+class User(AbstractUser):
+    age = models.CharField(max_length=2)
+    school_class = models.ForeignKey(SchoolClassPage, on_delete=models.SET_NULL, null=True)
+
+    # def save(self, *args, **kwargs):
+    #     Profile.objects.create(name=kwargs['First name'], surname=kwargs['last_name'], age=kwargs['age'], role_choices='Student', school_class=kwargs['school_class'])
+    #     super().save(*args, **kwargs)
+    
+# School-portal/home/templates/home/welcome_page.html
