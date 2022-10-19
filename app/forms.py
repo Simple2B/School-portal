@@ -10,7 +10,7 @@ from .models import SchoolClassPage, User, Profile, HomePage
 
 
 class CustomUserCreationForm(UserCreationForm):
-    username = forms.CharField(required=True, label=_("Username"))
+    # username = forms.CharField(required=True, label=_("Username"))
     first_name = forms.CharField(required=True, label=_("First name"))
     last_name = forms.CharField(required=True, label=_("Last name"))
     age = forms.CharField(required=True, label=_("Age"))
@@ -26,12 +26,10 @@ class CustomUserCreationForm(UserCreationForm):
     #     return self.first_name + " " + self.last_name
 
     def save(self, commit=True):
-        user = super().save(commit=False)
-        # p = Profile(name=user.first_name, surname=user.last_name, age=user.age, role='student', school_class=user.school_class, 
-        #                             title=' '.join((user.last_name, user.first_name)), slug=user.pk)
-        print(user)
-        # home = HomePage.objects.all()[0]
-        # home.add_child(instance=p)
-        # home.save()
-        # print(user)
-        # print(p)
+        user = super().save(commit=True)
+        p = Profile(name=user.first_name, surname=user.last_name, age=user.age, role='student', school_class=user.school_class, 
+                                    title=' '.join((user.last_name, user.first_name)), slug=user.pk)
+        home = HomePage.objects.first()
+        home.add_child(instance=p)
+        home.save()
+        return user
