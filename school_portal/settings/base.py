@@ -184,6 +184,7 @@ MEDIA_URL = "/media/"
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "school_portal"
+WAGTAIL_ALLOW_UNICODE_SLUGS = False
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
