@@ -1,8 +1,18 @@
-{% extends "wagtailusers/users/create.html" %}
-
 {% block extra_fields %}
-    <li>{% include "wagtailadmin/shared/field.html" with field=form.first_name %}</li>
-    <li>{% include "wagtailadmin/shared/field.html" with field=form.last_name %}</li>
-    <li>{% include "wagtailadmin/shared/field.html" with field=form.age %}</li>
-    <li>{% include "wagtailadmin/shared/field.html" with field=form.school_class %}</li>
+    <form action="" method="post">
+        {% csrf_token %}
+            {% for f in form %}
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label" for=" {{ f.id_for_label }} ">{{ f.label }}</label>
+                    </div>
+                    <div class="col-auto">
+                        {{ f }}
+                    </div>
+                    <div>{{ f.errors }}</div>
+                </div>
+            {% endfor %}
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
 {% endblock extra_fields %}

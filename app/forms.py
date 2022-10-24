@@ -2,15 +2,10 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 
 from wagtail.users.forms import UserEditForm, UserCreationForm
-from .models import SchoolClassPage, User, Profile, HomePage
-
-# class CustomUserEditForm(UserEditForm):
-#     country = forms.CharField(required=True, label=_("Country"))
-#     status = forms.ModelChoiceField(queryset=MembershipStatus.objects, required=True, label=_("Status"))
+from app.models import SchoolClassPage, User, Profile, HomePage
 
 
 class CustomUserCreationForm(UserCreationForm):
-    # username = forms.CharField(required=True, label=_("Username"))
     first_name = forms.CharField(required=True, label=_("First name"))
     last_name = forms.CharField(required=True, label=_("Last name"))
     age = forms.CharField(required=True, label=_("Age"))
@@ -18,12 +13,8 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
-        # exclude = ('is_superuser',)
+        exclude = ('is_superuser',)
         fields = ('username', 'email','first_name','last_name', 'school_class', 'age')
-
-    # @property
-    # def username(self):
-    #     return self.first_name + " " + self.last_name
 
     def save(self, commit=True):
         user = super().save(commit=True)

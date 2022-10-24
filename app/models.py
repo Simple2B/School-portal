@@ -1,3 +1,4 @@
+from email import header
 from random import choices
 import black
 from django.db import models
@@ -5,12 +6,13 @@ from django.contrib.auth.models import AbstractUser
 from requests import request
 
 from wagtail.models import Page, Collection
-from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.admin.panels import FieldPanel
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from wagtail.fields import StreamField
 
 
-from .blocks import BaseStreamBlock
+from app.blocks import BaseStreamBlock
+from core.models import ExtPage
 
 
 class ImagesGallaryPage(Page):
@@ -128,7 +130,7 @@ class InfoPage(Page):
     ]
 
 
-class HomePage(Page): 
+class HomePage(ExtPage): 
     """Page with news and photos and additional settings."""
 
     def get_context(self, request):
@@ -143,7 +145,7 @@ class HomePage(Page):
         BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
     )
 
-    template = "app/test_home_page.html"
+    # template = "app/test_home_page.html"
 
     content_panels = Page.content_panels + [
         FieldPanel("gallery_images"),
@@ -187,3 +189,26 @@ class User(AbstractUser):
     #     super().save(*args, **kwargs)
     
 # School-portal/home/templates/home/welcome_page.html
+
+
+#-----------------------------------------------------------ADMIN-----------------------------------------------------------
+from wagtail.contrib.modeladmin.options import ModelAdmin, ModelAdminGroup
+from allauth.socialaccount.models import SocialApp
+from wagtail.contrib.modeladmin.options import modeladmin_register
+
+
+class SocialAppAdmin(ModelAdmin):
+    model = SocialApp
+    menu_icon = 'placeholder'
+    add_to_settings_menu = False
+    exlude_from_explorer = False
+    list_display = ['name', 'provider']
+
+
+class SocialAuthGroup(ModelAdminGroup):
+    menu_label = 'Social Accounts'
+    menu_icon = 'users'
+    menu_order = 1200
+    items = (SocialAppAdmin,)
+
+modeladmin_register(SocialAuthGroup)
