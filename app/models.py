@@ -57,7 +57,7 @@ class SchoolClassPage(Page):
 class Profile(Page):
     name = models.CharField(max_length=80)
     surname = models.CharField(max_length=80)
-    age = models.CharField(max_length=80)
+    age = models.CharField(max_length=80, blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,

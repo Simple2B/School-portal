@@ -221,6 +221,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_BLACKLIST = ['admin', 'root']
 ACCOUNT_USERNAME_MIN_LENGTH = 2
 # ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
+SOCIALACCOUNT_ADAPTER='app.adapters.CustomSocialAccountAdapter'
 
 ACCOUNT_FORMS = {
     'signup': 'app.forms.CustomUserCreationForm',
