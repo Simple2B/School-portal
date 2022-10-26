@@ -20,7 +20,7 @@ class CustomAdapter(DefaultAccountAdapter): pass
 
 
 from app.models import HomePage, Profile
-
+from app.utils import create_profile
 
 
 class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
@@ -43,9 +43,5 @@ class CustomSocialAccountAdapter(DefaultSocialAccountAdapter):
         the signup form is not available.
         """
         user = super().save_user(request, sociallogin, form)
-        p = Profile(name=user.first_name, surname=user.last_name, age=user.age, role='student', school_class=user.school_class, 
-                            title=' '.join((user.last_name, user.first_name)), slug=user.pk)
-        home = HomePage.objects.first()
-        home.add_child(instance=p)
-        home.save()
+        create_profile(user)
         return user
