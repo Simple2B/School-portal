@@ -92,16 +92,6 @@ TEMPLATES = [
     },
 ]
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'APP': {
-#             'client_id': '76802844009-lqmqnhrqq49eb4h3ejk9bpvb24ir6tfp.apps.googleusercontent.com',
-#             'secret': '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',
-#             'key': ''
-#         }
-#     }
-# }
-
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -226,21 +216,3 @@ SOCIALACCOUNT_ADAPTER='app.adapters.CustomSocialAccountAdapter'
 ACCOUNT_FORMS = {
     'signup': 'app.forms.CustomUserCreationForm',
 }
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_FROM = 'dzhek.layt298@gmail.com'
-# EMAIL_HOST_USER = 'dzhek.layt298@gmail.com'
-# EMAIL_HOST_PASSWORD = "mojzgptjrsnouzgw"
-# EMAIL_USE_TLS = True
-
-# PASSWORD_RESET_TIMEOUT = 14400
-
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER = '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'
-# EMAIL_HOST_PASSWORD = "pMFO2JjhQ5S19SjH2OMZdw"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
