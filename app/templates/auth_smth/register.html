@@ -1,0 +1,18 @@
+{% block extra_fields %}
+    <form action="" method="post">
+        {% csrf_token %}
+            {% for f in form %}
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label class="col-form-label" for=" {{ f.id_for_label }} ">{{ f.label }}</label>
+                    </div>
+                    <div class="col-auto">
+                        {{ f }}
+                    </div>
+                    <div>{{ f.errors }}</div>
+                </div>
+            {% endfor %}
+        
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+{% endblock extra_fields %}

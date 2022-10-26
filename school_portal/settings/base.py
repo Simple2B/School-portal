@@ -24,11 +24,13 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    "home",
     "search",
     "app",
+    "core",
+
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
+    "wagtail.contrib.modeladmin",
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
@@ -46,7 +48,18 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+
+    "meta",
+    "wagtailmetadata"
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -77,6 +90,24 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google': {
+#         'APP': {
+#             'client_id': '76802844009-lqmqnhrqq49eb4h3ejk9bpvb24ir6tfp.apps.googleusercontent.com',
+#             'secret': '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',
+#             'key': ''
+#         }
+#     }
+# }
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 WSGI_APPLICATION = "school_portal.wsgi.application"
@@ -153,6 +184,7 @@ MEDIA_URL = "/media/"
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "school_portal"
+WAGTAIL_ALLOW_UNICODE_SLUGS = False
 
 # Search
 # https://docs.wagtail.org/en/stable/topics/search/backends.html
@@ -167,4 +199,48 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 
-# AUTH_USER_MODEL = 'app.User'
+AUTH_USER_MODEL = 'app.User'
+
+# WAGTAIL_FRONTEND_LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_LOGOUT_REDIRECT_URL = '/login/'
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_USERNAME_BLACKLIST = ['admin', 'root']
+ACCOUNT_USERNAME_MIN_LENGTH = 2
+# ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
+SOCIALACCOUNT_ADAPTER='app.adapters.CustomSocialAccountAdapter'
+
+ACCOUNT_FORMS = {
+    'signup': 'app.forms.CustomUserCreationForm',
+}
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_FROM = 'dzhek.layt298@gmail.com'
+# EMAIL_HOST_USER = 'dzhek.layt298@gmail.com'
+# EMAIL_HOST_PASSWORD = "mojzgptjrsnouzgw"
+# EMAIL_USE_TLS = True
+
+# PASSWORD_RESET_TIMEOUT = 14400
+
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = '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'
+# EMAIL_HOST_PASSWORD = "pMFO2JjhQ5S19SjH2OMZdw"
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
