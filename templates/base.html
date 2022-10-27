@@ -1,0 +1,93 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+{% load account socialaccount %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+            {% wagtail_site as current_site %}
+            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Force all links in the live preview panel to be opened in a new tab #}
+        {% if request.in_preview_panel %}
+        <base target="_blank">
+        {% endif %}
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/school_portal.css' %}">
+        <!-- <link rel="stylesheet" type="text/css" href="static/css/school_portal.css"> -->
+
+        {% block extra_css %}
+        {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+        <div class="navbar">
+            <div class="navbar__wrapper">
+                <div class="navbar__image">
+                    <img src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0" alt="">
+                </div>
+                <div class="navbar__menu">
+                    <div class="navbar__container">
+                        <a href="{% slugurl 'core' %}">Home page</a>
+                        <a href="{% slugurl 'about-us' %}">About us</a>
+                        <!-- <a>Text 3</a>
+                        <a>Text 4</a>
+                        <a>Text 5</a>
+                        <a>Text 6</a> -->
+                    </div> 
+                    <button class="contact_us">Contact us</button>
+                </div>
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/school_portal.js' %}"></script>
+
+        {% block extra_js %}
+        {# Override this in templates to add extra javascript #}
+        {% endblock %}
+
+        {% block footer %}
+            <div class="footer">
+                <div class="footer__container">
+                    
+                    <div class="footer__image">
+                        <img src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0" alt="">
+                    </div>
+                    <div class="footer__menu">
+                        <a href="{% slugurl 'core' %}">Home page</a>
+                        <a href="{% slugurl 'about-us' %}">About us</a>
+                        <!-- <a>Text 3</a>
+                        <a>Text 4</a>
+                        <a>Text 5</a>
+                        <a>Text 6</a> -->
+                    </div>
+                    <div class="footer__links">
+                        <p>any email</p>
+                        <p>any phone number</p>
+                        <p>any bot</p>
+                    </div>
+                    <div class="footer__button">
+                        <button class="contact_us">Contact us</button>
+                    </div>
+                    
+                </div>
+            </div>
+        {% endblock %}
+    </body>
+</html>
