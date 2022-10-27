@@ -43,5 +43,6 @@ class BaseStreamBlock(StreamBlock):
     )
     image_block = ImageBlock()
     embed_block = EmbedBlock(
-        template="blocks/embed_block.html"
+        template="blocks/embed_block.html",
+        max_width=600, max_height=338
     )

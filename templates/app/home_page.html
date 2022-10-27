@@ -5,14 +5,27 @@
 
 {% block content %}
     <div class="content">
-        <h1>Test home page template lol</h1>
 
-        {% for n in news %}
-            {{ n.title }}
-        {% endfor %}
+        <div class="page_title">
+            <h1>{{ page.title }}</h1>
+        </div>
 
-        {% for g in page.gallery_images.all %}
+        {{ page.body }}
+
+        <div class="home_page_news">
+            <h2>News:</h2><br>
+            {% for n in news %}
+                <a href="{% pageurl n %}">{{ n.title }}</a>
+            {% endfor %}
+        </div>
+
+        <!-- {% for g in page.gallery_images.all %}
             {% image g.image fill-320x240 %}
-        {% endfor %}
+
+            {% for i in g.get_children %}
+                {{ i.image }}
+            {% endfor %}
+
+        {% endfor %} -->
     </div>
 {% endblock %}
