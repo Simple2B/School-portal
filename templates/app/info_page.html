@@ -5,6 +5,72 @@
 
 {% block content %}
     <div class="content">
-        <h1>{{ page.title }}</h1>
+        <div class="page_title">
+            <h1>{{ page.title }}</h1>
+        </div>
+        {% if page.type == 'about_us' %}
+            <div class="about_us">
+                <div class="about_us__description">
+                    <p>We are very cool school and so on and so on... We know how to maximize business value and ensure sustainability with custom technical solutions. We are deliver hight-quality, stable, scalable and functional digital products.</p>
+                </div>
+                <img src="https://media.gettyimages.com/photos/funny-dog-with-orange-glasses-picture-id1263850669?s=612x612" alt="">
+            </div>
+
+            <div class="our_advantages">
+                <div>
+                    <h1>Our advantages</h1>
+                </div>
+                <div class="advantages_list">
+                    <ul>
+                        <li>Advantage 1...</li>
+                        <li>Advantage 2...</li>
+                        <li>Advantage 3...</li>
+                        <li>Advantage 4...</li>
+                        <li>Advantage 5...</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="leadership">
+                <div>
+                    <h1>Leadership</h1>
+                </div>
+
+                <div class="leadership__lead">
+                    <img src="https://www.simple2b.com/_next/image?url=%2Fjpg%2Fteam%2FV_Khmura.jpg&w=1920&q=60" alt="">
+                    <div class="leadership__lead__description">
+                        <h2>Vasyl Khmura</h2>
+                        <p>Director 1<br>
+                            Sales & Human Relations enthusiast. Entrepreneur & Strategist. Innovation developer. I have 17 years of working experience in IT, Telecommunications & Financial industries in top global companies in managerial positions. With all my experience, I'm helping businesses of different sizes & spheres to solve pain points, embrace strong sides, and discover opportunities to grow.</p>
+                    </div>
+                </div>
+                <div class="leadership__lead">
+                    <div class="leadership__lead__description">
+                        <h2>Nikolay Chernov</h2>
+                        <p>Director 2<br> 
+                            Director with more than 25 years experience. Object-Oriented Analysis and Design, Design Patterns, Best Programming Practices in C++ and C#, TDD (Test Driven Development), Qt, Cloud Application(Azure), Agile development with Scrum, client/server programming, TCP/IP and web protocols, Windows system programming, Multi-threading & IPC, Web Services, Git, SVN, TFS, Perforce, DDK/WIN PE build environment (NT Build), CMake. Last years focused on Web Application development on Python and TypeScript for implementing solution for small and middle businesses.</p>
+                    </div>
+                    <img src="https://www.simple2b.com/_next/image?url=%2Fjpg%2Fteam%2FN_Chernov.jpg&w=1920&q=60" alt="">
+                </div>
+            </div>
+
+            <div class="our_team">
+                <div>
+                    <h1>Our team</h1>
+                </div>
+                <div class="our_team__teachers">
+
+                    {% for teacher in teachers%}
+                        <div class="our_team__teachers__teacher">
+                            {% image teacher.image width-270 %}
+                            <h3 class="our_team__teachers__teacher__name">{{teacher.title}}</h3>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        {% endif %}
+        {{ page.body }}
     </div>
 {% endblock %}

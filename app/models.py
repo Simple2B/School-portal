@@ -112,6 +112,12 @@ class LessonPage(Page):
 class InfoPage(Page):
     """news, about_us, contacts"""
 
+    def get_context(self, request):
+        teachers = Profile.objects.filter(role="teacher")
+        context = super().get_context(request)
+        context['teachers'] = teachers
+        return context
+
     choices = [
         ("news", "News"),
         ("about_us", "About_us"),

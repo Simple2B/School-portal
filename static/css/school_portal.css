@@ -156,11 +156,103 @@ a {
 }
 
 .home_page_news {
-    margin: 50px 200px 50px 200px;
+    margin: 50px 250px 50px 250px;
     display: flex;
     align-items: center;
     font-size: 14px;
     line-height: 21px;
     flex-direction: column;
     line-height: 30px;
+}
+
+.about_us {
+    display: flex;
+    align-items: center;
+    padding: 0px 200px 0px 200px;
+    margin: 50px;
+    gap: 25px;
+}
+
+.about_us img {
+    border-radius: 25px;
+    width: 600px;
+    height: 450px;
+}
+
+.about_us__description {
+    flex: 60%;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.our_advantages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 50px 250px 50px 250px;
+}
+
+.advantages_list {
+    font-size: 14px;
+    line-height: 50px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li:before {
+content: '✓';
+}
+
+.leadership {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 250px 50px 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+.leadership__lead {
+    display: flex;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 25px;
+    gap: 25px;
+}
+
+.leadership__lead img {
+    border-radius: 25px;
+    width: 450px;
+    height: 565px;
+    border: 15px;
+}
+
+.leadership__lead__description {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
+.our_team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 250px 50px 250px;
+}
+
+.our_team__teachers img {
+    border-radius: 15px;
+}
+
+.our_team__teachers {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.our_team__teachers__teacher {
+    padding: 15px;
 }
