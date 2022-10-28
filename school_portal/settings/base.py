@@ -78,7 +78,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(PROJECT_DIR, "templates"),
+            os.path.join(BASE_DIR, "templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -91,16 +91,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'APP': {
-#             'client_id': '76802844009-lqmqnhrqq49eb4h3ejk9bpvb24ir6tfp.apps.googleusercontent.com',
-#             'secret': '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',
-#             'key': ''
-#         }
-#     }
-# }
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -166,7 +156,7 @@ STATICFILES_FINDERS = [
 ]
 
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "static"),
+    os.path.join(BASE_DIR, "static"),
 ]
 
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
@@ -174,7 +164,7 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/4.1/ref/contrib/staticfiles/#manifeststaticfilesstorage
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -226,21 +216,3 @@ SOCIALACCOUNT_ADAPTER='app.adapters.CustomSocialAccountAdapter'
 ACCOUNT_FORMS = {
     'signup': 'app.forms.CustomUserCreationForm',
 }
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_FROM = 'dzhek.layt298@gmail.com'
-# EMAIL_HOST_USER = 'dzhek.layt298@gmail.com'
-# EMAIL_HOST_PASSWORD = "mojzgptjrsnouzgw"
-# EMAIL_USE_TLS = True
-
-# PASSWORD_RESET_TIMEOUT = 14400
-
-# EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER = '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'
-# EMAIL_HOST_PASSWORD = "pMFO2JjhQ5S19SjH2OMZdw"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
