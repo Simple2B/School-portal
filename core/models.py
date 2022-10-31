@@ -1,5 +1,3 @@
-from tabnanny import verbose
-import black
 from wagtail.models import Page
 from wagtail.search import index
 from wagtail.images import get_image_model_string

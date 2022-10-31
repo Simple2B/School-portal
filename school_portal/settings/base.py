@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from decouple import config
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -20,6 +21,8 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
+
+SECRET_KEY = config("SECRET_KEY")
 
 # Application definition
 
@@ -106,12 +109,24 @@ WSGI_APPLICATION = "school_portal.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+if config("DJANGO_ENV", "development") == "development":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": f"{BASE_DIR}/db.sqlite3",
+        }
     }
-}
+elif config("DJANGO_ENV") == "production":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": config("PG_DB"),
+            "USER": config("PG_USER"),
+            "PASSWORD": config("PG_PASSWORD"),
+            "HOST": config("DB_HOST"),
+            "PORT": int(config("DB_PORT")),
+        }
+    }
 
 
 # Password validation
