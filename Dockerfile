@@ -49,11 +49,8 @@ COPY poetry.lock .
 COPY pyproject.toml .
 
 RUN POETRY_VIRTUALENVS_CREATE=false poetry install --only main --no-interaction --no-ansi
-RUN pip install python-decouple
 RUN pip install gunicorn
 
-# RUN pip install wagtail-metadata-mixin
-# RUN pip install wagtail
 # Use /app folder as a directory where the source code is stored.
 COPY . .
 RUN chmod a+x /app/start_server.sh
