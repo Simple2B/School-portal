@@ -128,6 +128,7 @@ elif config("DJANGO_ENV") == "production":
         }
     }
 
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "school.simple2b.net"]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -226,7 +227,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_BLACKLIST = ['admin', 'root']
 ACCOUNT_USERNAME_MIN_LENGTH = 2
 # ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
-SOCIALACCOUNT_ADAPTER='app.adapters.CustomSocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER='app.social_account_adapter.CustomSocialAccountAdapter'
 
 ACCOUNT_FORMS = {
     'signup': 'app.forms.CustomUserCreationForm',
