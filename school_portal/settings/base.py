@@ -125,7 +125,11 @@ elif config("DJANGO_ENV") == "production":
     }
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "school.simple2b.net"]
-CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
+CSRF_TRUSTED_ORIGINS = [
+    "https://localhost",
+    "https://127.0.0.1",
+    "https://school.simple2b.net",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
