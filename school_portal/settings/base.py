@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     "search",
     "app",
     "core",
-
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.modeladmin",
@@ -52,14 +51,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
-
     "meta",
-    "wagtailmetadata"
+    "wagtailmetadata",
 ]
 
 SITE_ID = 1
@@ -97,10 +94,9 @@ TEMPLATES = [
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
+    "django.contrib.auth.backends.ModelBackend",
     # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
+    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 WSGI_APPLICATION = "school_portal.wsgi.application"
@@ -129,6 +125,7 @@ elif config("DJANGO_ENV") == "production":
     }
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "school.simple2b.net"]
+CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -205,30 +202,30 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAILADMIN_BASE_URL = "http://example.com"
 
 
-AUTH_USER_MODEL = 'app.User'
+AUTH_USER_MODEL = "app.User"
 
 # WAGTAIL_FRONTEND_LOGIN_URL = '/accounts/login/'
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = "/login/"
+LOGIN_REDIRECT_URL = "/"
 # ACCOUNT_USER_MODEL_USERNAME_FIELD = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 SOCIALACCOUNT_QUERY_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
-ACCOUNT_LOGOUT_REDIRECT_URL = '/login/'
+ACCOUNT_LOGOUT_REDIRECT_URL = "/login/"
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
-ACCOUNT_USERNAME_BLACKLIST = ['admin', 'root']
+ACCOUNT_USERNAME_BLACKLIST = ["admin", "root"]
 ACCOUNT_USERNAME_MIN_LENGTH = 2
 # ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
-SOCIALACCOUNT_ADAPTER='app.social_account_adapter.CustomSocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = "app.social_account_adapter.CustomSocialAccountAdapter"
 
 ACCOUNT_FORMS = {
-    'signup': 'app.forms.CustomUserCreationForm',
+    "signup": "app.forms.CustomUserCreationForm",
 }
