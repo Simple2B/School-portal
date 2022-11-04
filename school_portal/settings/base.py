@@ -105,22 +105,36 @@ WSGI_APPLICATION = "school_portal.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if config("DJANGO_ENV", "development") == "development":
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": f"{BASE_DIR}/db.sqlite3",
-        }
+DJANGO_ENV = config("DJANGO_ENV", "development")
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": f"{BASE_DIR}/db.sqlite3",
     }
-elif config("DJANGO_ENV") == "production":
+}
+
+if DJANGO_ENV == "development":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
             "NAME": config("PG_DB"),
             "USER": config("PG_USER"),
             "PASSWORD": config("PG_PASSWORD"),
-            "HOST": config("DB_HOST"),
-            "PORT": int(config("DB_PORT")),
+            "HOST": "loalhost",
+            "PORT": 5432,
+        }
+    }
+
+elif DJANGO_ENV == "production":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": config("PG_DB"),
+            "USER": config("PG_USER"),
+            "PASSWORD": config("PG_PASSWORD"),
+            "HOST": "db",
+            "PORT": 5432,
         }
     }
 
