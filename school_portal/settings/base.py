@@ -121,7 +121,7 @@ if DJANGO_ENV == "development":
             "NAME": config("PG_DB"),
             "USER": config("PG_USER"),
             "PASSWORD": config("PG_PASSWORD"),
-            "HOST": "loalhost",
+            "HOST": "localhost",
             "PORT": 5432,
         }
     }
