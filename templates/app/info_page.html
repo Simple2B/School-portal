@@ -54,21 +54,22 @@
                 </div>
             </div>
 
-            <div class="our_team">
-                <div>
-                    <h1>Our team</h1>
-                </div>
-                <div class="our_team__teachers">
+            {% if teachers %}
+                <div class="our_team">
+                    <div>
+                        <h1>Our team</h1>
+                    </div>
+                    <div class="our_team__teachers">
 
-                    {% for teacher in teachers%}
-                        <div class="our_team__teachers__teacher">
-                            {% image teacher.image width-270 %}
-                            <h3 class="our_team__teachers__teacher__name">{{teacher.title}}</h3>
-                        </div>
-                    {% endfor %}
+                        {% for teacher in teachers %}
+                            <div class="our_team__teachers__teacher">
+                                {% image teacher.image width-270 %}
+                                <h3 class="our_team__teachers__teacher__name">{{teacher.title}}</h3>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-
+            {% endif %}
 
         {% endif %}
         {{ page.body }}
