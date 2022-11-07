@@ -3,6 +3,8 @@
 <div class="image_block">
     <figure>
         {% image self.image fill-600x338 loading="lazy" %}
-        <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>
+        {% if self.caption %}
+            <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>
+        {% endif %}
     </figure>
 </div>
