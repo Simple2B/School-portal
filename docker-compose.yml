@@ -17,9 +17,11 @@ services:
       - 127.0.0.1:${DB_PORT}:5432
 
   app:
-    container_name: "app_wag"
     build: .
     restart: always
+    volumes:
+      - ./staticfiles:/app/staticfiles/
+      - ./media:/app/media/
     entrypoint: bash ./start_server.sh
     env_file:
       - .env
