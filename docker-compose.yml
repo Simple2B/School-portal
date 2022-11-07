@@ -20,8 +20,8 @@ services:
     build: .
     restart: always
     volumes:
-      - ./staticfiles:/app/staticfiles/
-      - ./media:/app/media/
+      - ./staticfiles:/app/staticfiles
+      - ./media:/app/media
     entrypoint: bash ./start_server.sh
     env_file:
       - .env

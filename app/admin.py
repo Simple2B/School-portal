@@ -1,6 +1,9 @@
 from django.contrib import admin
-from .models import User
+from wagtail.contrib.modeladmin.options import modeladmin_register
 
-# Register your models here.
+from app.models.user import User
+from app.models.social_auth_group import SocialAuthGroup
+
 
 admin.site.register(User)
+modeladmin_register(SocialAuthGroup)
