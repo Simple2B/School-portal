@@ -5,6 +5,7 @@ class CustomAdapter(DefaultAccountAdapter):
     pass
 
 
+# TODO implement adapter for email verification or delete
 # def get_email_confirmation_url(self, request, emailconfirmation):
 #     """Constructs the email confirmation (activation) url.
 #     Note that if you have architected your system such that email

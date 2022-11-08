@@ -1,5 +1,5 @@
 from django import forms
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy
 
 from wagtail.users.forms import UserCreationForm
 from app.models import SchoolClassPage, User
@@ -8,13 +8,13 @@ from app.utils import create_profile
 
 
 class CustomUserCreationForm(UserCreationForm):
-    first_name = forms.CharField(required=True, label=_("First name"))
-    last_name = forms.CharField(required=True, label=_("Last name"))
-    age = forms.CharField(required=True, label=_("Age"))
+    first_name = forms.CharField(required=True, label=gettext_lazy("First name"))
+    last_name = forms.CharField(required=True, label=gettext_lazy("Last name"))
+    age = forms.CharField(required=True, label=gettext_lazy("Age"))
     school_class = forms.ModelChoiceField(
         queryset=SchoolClassPage.objects.all(),
         required=True,
-        label=_("Your class"),  # noqa: E501
+        label=gettext_lazy("Your class"),
     )
 
     class Meta(UserCreationForm.Meta):
@@ -27,7 +27,7 @@ class CustomUserCreationForm(UserCreationForm):
             "last_name",
             "school_class",
             "age",
-        )  # noqa: E501
+        )
 
     def save(self, commit=True):
         user = super().save(commit=True)

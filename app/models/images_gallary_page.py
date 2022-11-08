@@ -17,7 +17,7 @@ class ImagesGallaryPage(Page):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name="+",  # noqa: E501
+        related_name="+",
     )
 
     content_panels = Page.content_panels + [

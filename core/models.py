@@ -5,7 +5,7 @@ from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 from wagtailmetadata.models import MetadataPageMixin
 
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy
 
 
 class ExtPage(MetadataPageMixin, Page):
@@ -24,18 +24,18 @@ class ExtPage(MetadataPageMixin, Page):
         MultiFieldPanel(
             [
                 FieldPanel("slug"),
-                FieldPanel("seo_title", heading=_("Title tag")),
+                FieldPanel("seo_title", heading=gettext_lazy("Title tag")),
                 FieldPanel("search_description"),
                 FieldPanel("keywords"),
                 FieldPanel("search_image"),
             ],
-            heading=_("For search engines"),
+            heading=gettext_lazy("For search engines"),
         ),
         MultiFieldPanel(
             [
                 FieldPanel("show_in_menus"),
             ],
-            heading=_("For site menus"),
+            heading=gettext_lazy("For site menus"),
         ),
     ]
 

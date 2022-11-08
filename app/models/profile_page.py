@@ -17,7 +17,7 @@ class ProfilePage(Page):
         BaseStreamBlock(),
         verbose_name="Page body",
         blank=True,
-        use_json_field=True,  # noqa: E501
+        use_json_field=True,
     )
 
     content_panels = Page.content_panels + [FieldPanel("body")]

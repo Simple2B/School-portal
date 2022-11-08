@@ -22,7 +22,7 @@ class InfoPage(Page):
         ("news", "News"),
         ("about_us", "About_us"),
         ("contacts", "Contacts"),
-    ]  # noqa: E501
+    ]
 
     type = models.CharField(choices=choices, max_length=20, default="news")
 
@@ -30,7 +30,7 @@ class InfoPage(Page):
         BaseStreamBlock(),
         verbose_name="Page body",
         blank=True,
-        use_json_field=True,  # noqa: E501
+        use_json_field=True,
     )
 
     content_panels = Page.content_panels + [

@@ -10,5 +10,5 @@ class User(AbstractUser):
     school_class = models.ForeignKey(
         SchoolClassPage, on_delete=models.SET_NULL, null=True
     )
-
+    # TODO discover why do we need this object
     # BaseStreamBlock

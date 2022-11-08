@@ -26,10 +26,8 @@ class HomePage(ExtPage):
         BaseStreamBlock(),
         verbose_name="Page body",
         blank=True,
-        use_json_field=True,  # noqa: E501
+        use_json_field=True,
     )
-
-    # template = "app/test_home_page.html"
 
     content_panels = Page.content_panels + [
         FieldPanel("gallery_images"),
