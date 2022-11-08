@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-echo version
-python manage.py --version
-pwd
-ls -a
 echo started migration
 python manage.py migrate
 echo collect static

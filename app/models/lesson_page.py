@@ -9,10 +9,22 @@ from app.models.schedule_page import SchedulePage
 
 
 class LessonPage(Page):
-    time = models.CharField(max_length=5)   #add validatin like "\d{2}:\d{2}"
-    teacher = models.ForeignKey(Profile, null=True, on_delete=models.SET_NULL, related_name="lessons")
-    school_class = models.ForeignKey(SchoolClassPage, null=True, on_delete=models.SET_NULL, related_name="lessons")
-    schedule = ParentalKey(SchedulePage, null=True, on_delete=models.SET_NULL, related_name="lessons")
+    time = models.CharField(max_length=5)  # add validatin like "\d{2}:\d{2}"
+    teacher = models.ForeignKey(
+        Profile, null=True, on_delete=models.SET_NULL, related_name="lessons"
+    )
+    school_class = models.ForeignKey(
+        SchoolClassPage,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="lessons",  # noqa: E501
+    )
+    schedule = ParentalKey(
+        SchedulePage,
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="lessons",  # noqa: E501
+    )
 
     template = "app/lesson_page.html"
 
@@ -20,5 +32,5 @@ class LessonPage(Page):
         FieldPanel("time"),
         FieldPanel("teacher"),
         FieldPanel("school_class"),
-        FieldPanel("schedule")
+        FieldPanel("schedule"),
     ]

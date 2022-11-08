@@ -11,18 +11,24 @@ class Profile(Page):
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
-        blank=True, 
-        on_delete=models.SET_NULL, 
-        related_name="+"
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
     )
     role_choices = [
         ("student", "Student"),
         ("teacher", "Teacher"),
         ("super_user", "Super user"),
-        ("admin", "Admin")
-    ] 
+        ("admin", "Admin"),
+    ]
     role = models.CharField(max_length=80, choices=role_choices)
-    school_class = models.ForeignKey(SchoolClassPage, null=True, blank=True, on_delete=models.SET_NULL, related_name="member")
+    school_class = models.ForeignKey(
+        SchoolClassPage,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="member",
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel("name"),

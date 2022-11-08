@@ -10,13 +10,14 @@ class ProfilePage(Page):
     def get_context(self, request):
         profile = Profile.objects.get(pk=request.user.pk)
         context = super().get_context(request)
-        context['profile'] = profile
+        context["profile"] = profile
         return context
-    
+
     body = StreamField(
-        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+        BaseStreamBlock(),
+        verbose_name="Page body",
+        blank=True,
+        use_json_field=True,  # noqa: E501
     )
 
-    content_panels = Page.content_panels + [
-        FieldPanel("body")
-    ]
+    content_panels = Page.content_panels + [FieldPanel("body")]

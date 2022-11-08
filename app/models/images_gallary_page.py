@@ -7,17 +7,17 @@ class ImagesGallaryPage(Page):
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
-        blank=True, 
-        on_delete=models.SET_NULL, 
-        related_name="+"
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
     )
 
     collection = models.ForeignKey(
-        Collection, 
-        null=True, 
-        blank=True, 
-        on_delete=models.SET_NULL, 
-        related_name="+"
+        Collection,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",  # noqa: E501
     )
 
     content_panels = Page.content_panels + [

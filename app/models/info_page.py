@@ -15,19 +15,22 @@ class InfoPage(Page):
     def get_context(self, request):
         teachers = Profile.objects.filter(role="teacher")
         context = super().get_context(request)
-        context['teachers'] = teachers
+        context["teachers"] = teachers
         return context
 
     choices = [
         ("news", "News"),
         ("about_us", "About_us"),
-        ("contacts", "Contacts")
-    ]
+        ("contacts", "Contacts"),
+    ]  # noqa: E501
 
     type = models.CharField(choices=choices, max_length=20, default="news")
 
     body = StreamField(
-        BaseStreamBlock(), verbose_name="Page body", blank=True, use_json_field=True
+        BaseStreamBlock(),
+        verbose_name="Page body",
+        blank=True,
+        use_json_field=True,  # noqa: E501
     )
 
     content_panels = Page.content_panels + [

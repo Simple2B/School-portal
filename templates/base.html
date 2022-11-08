@@ -24,7 +24,6 @@
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/school_portal.css' %}">
-        <!-- <link rel="stylesheet" type="text/css" href="static/css/school_portal.css"> -->
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
@@ -43,10 +42,6 @@
                     <div class="navbar__container">
                         <a href="{% slugurl 'core' %}">Home page</a>
                         <a href="{% slugurl 'about-us' %}">About us</a>
-                        <!-- <a>Text 3</a>
-                        <a>Text 4</a>
-                        <a>Text 5</a>
-                        <a>Text 6</a> -->
                     </div> 
                     <button class="contact_us">Contact us</button>
                 </div>
@@ -72,10 +67,6 @@
                     <div class="footer__menu">
                         <a href="{% slugurl 'core' %}">Home page</a>
                         <a href="{% slugurl 'about-us' %}">About us</a>
-                        <!-- <a>Text 3</a>
-                        <a>Text 4</a>
-                        <a>Text 5</a>
-                        <a>Text 6</a> -->
                     </div>
                     <div class="footer__links">
                         <p>any email</p>
