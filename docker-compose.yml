@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:12
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DB}
+      PGDATABASE: ${PG_DB}
+      PGPASSWORD: ${PG_PASSWORD}
+      PGUSER: ${PG_USER}
+    ports:
+      - 127.0.0.1:${DB_PORT}:5432
+
+  app:
+    build: .
+    restart: always
+    volumes:
+      - ./staticfiles:/app/staticfiles
+      - ./media:/app/media
+    entrypoint: bash ./start_server.sh
+    env_file:
+      - .env
+    environment:
+      DJANGO_ENV: production
+    depends_on:
+      - db
+    ports:
+      - 127.0.0.1:${WEB_PORT}:8000
+
+volumes:
+  db_data:

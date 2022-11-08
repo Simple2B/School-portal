@@ -1,0 +1,10 @@
+{% load wagtailimages_tags %}
+
+<div class="image_block">
+    <figure>
+        {% image self.image fill-600x338 loading="lazy" %}
+        {% if self.caption %}
+            <figcaption>{{ self.caption }} - {{ self.attribution }}</figcaption>
+        {% endif %}
+    </figure>
+</div>

@@ -1,8 +1,10 @@
-from .base import *
+# NOTE default wagtail import
+from .base import *  # noqa: F403, F401
 
 DEBUG = False
 
 try:
-    from .local import *
+    # NOTE default wagtail import
+    from .local import *  # noqa: F403, F401
 except ImportError:
     pass

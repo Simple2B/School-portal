@@ -1,0 +1,10 @@
+from django.core.mail import send_mail
+
+
+def send_email(self):
+    url = "http://127.0.0.1:8000/confirm-email/"
+    subject = "email confirmation"
+    user_to = ""
+    user_from = ""
+    message = f"You're receiving this e-mail because user {user_to} has given your e-mail address to register an account on example.com. To confirm email, go to {url}. Thank you!"
+    send_mail(subject, message, user_from, [user_to])

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+
+{% block content %}
+    <div class="content">
+
+        <div class="page_title">
+            <h1>{{ page.title }}</h1>
+        </div>
+
+        {{ page.body }}
+
+        {% if news %}
+            <div class="home_page_news">
+                <h2>News:</h2><br>
+                {% for n in news %}
+                    <a href="{% pageurl n %}">{{ n.title }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- TODO implement gallary page -->
+        <!-- {% for g in page.gallery_images.all %}
+            {% image g.image fill-320x240 %}
+
+            {% for i in g.get_children %}
+                {{ i.image }}
+            {% endfor %}
+
+        {% endfor %} -->
+    </div>
+{% endblock %}

@@ -4,15 +4,21 @@ version = "0.1.0"
 description = ""
 authors = ["EvgeniiShcherbina <eugene@inkit.com>"]
 readme = "README.md"
-packages = [{include = "school_portal"}]
 
 [tool.poetry.dependencies]
 python = "3.9.5"
+django-allauth = "^0.51.0"
+django-meta = "^2.1.0"
+psycopg2-binary = "^2.9.5"
+wagtail = "^4.0.2"
+wagtail-metadata = "^4.0.2"
+python-decouple = "^3.6"
+gunicorn = "^20.1.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.10.0"
 flake8 = "^5.0.4"
-wagtail = "^4.0.2"
+
 
 [build-system]
 requires = ["poetry-core"]
