@@ -2,8 +2,16 @@ from django.db import models
 from wagtail.models import Page, Collection
 from wagtail.admin.panels import FieldPanel
 
+from wagtail.images.models import Image
+
 
 class ImagesGallaryPage(Page):
+    def get_context(self, request):
+        context = super().get_context(request)
+        images = Image.objects.filter(collection=self.collection)
+        context["images"] = images
+        return context
+
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,

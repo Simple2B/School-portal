@@ -256,3 +256,24 @@ content: '✓';
 .our_team__teachers__teacher {
     padding: 15px;
 }
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.gallery__content {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.gallery__content__item {
+    margin: 15px;
+}
+
+.gallery__content__item img{
+    border-radius: 15px;
+}
