@@ -12,3 +12,4 @@ from app.models.schedule_page import SchedulePage
 from app.models.school_class_page import SchoolClassPage
 from app.models.social_app_admin import SocialAppAdmin
 from app.models.social_auth_group import SocialAuthGroup
+from app.models.form_page import FormPage
