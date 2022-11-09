@@ -19,7 +19,9 @@ class HomePage(ExtPage):
         return context
 
     gallery_images = ParentalManyToManyField(
-        "ImagesGallaryPage", blank=True, related_name="home_page"
+        "app.ImagesGallaryPage",
+        blank=True,
+        related_name="home_page",
     )
 
     body = StreamField(
