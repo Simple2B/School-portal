@@ -4,12 +4,22 @@
 
 {% block content %}
     <div class="content">
-        <h1>{{ page.title }}</h1>
-        {{ page.intro|safe }}
-        <form action="{% pageurl page %}" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit">
-        </form>
+        <div class="wrapper">
+            <div class="form_page">
+                <div class="page_title">
+                    <h1>{{ page.title }}</h1>
+                </div>
+                <div class="form_page__intro">
+                    {{ page.intro|safe }}
+                </div>
+                <div class="form_page__form_block">
+                    <form action="{% pageurl page %}" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="default_button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

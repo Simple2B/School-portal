@@ -277,3 +277,45 @@ content: '✓';
 .gallery__content__item img{
     border-radius: 15px;
 }
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.form_page {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_page__form_block {
+    margin-bottom: 50px;
+}
+
+.form_field {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #bdbdbd;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.default_button {
+    height: 50px;
+    width: 100px;
+    border: 1px solid;
+    color: white;
+    background-color: rgb(31, 30, 30);
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 16px;
+}
