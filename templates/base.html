@@ -42,8 +42,10 @@
                     <div class="navbar__container">
                         <a href="{% slugurl 'core' %}">Home page</a>
                         <a href="{% slugurl 'about-us' %}">About us</a>
-                    </div> 
-                    <button class="contact_us">Contact us</button>
+                    </div>
+                    <a href="{% slugurl 'form-page' %}"> 
+                        <button class="contact_us">Contact us</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -74,7 +76,9 @@
                         <p>any bot</p>
                     </div>
                     <div class="footer__button">
-                        <button class="contact_us">Contact us</button>
+                        <a href="{% slugurl 'form-page' %}">
+                            <button class="contact_us">Contact us</button>
+                        </a>
                     </div>
                     
                 </div>
