@@ -1,3 +1,4 @@
+from wagtail.models import Site
 from app.models import HomePage, Profile, User
 
 
@@ -14,3 +15,17 @@ def create_profile(user: User) -> None:
     home = HomePage.objects.first()
     home.add_child(instance=p)
     home.save()
+
+
+def get_menu(context):
+    """Function for header and footer. Returns menu items"""
+
+    menu = [Site.find_for_request(context["request"]).root_page]
+    [
+        menu.append(item)
+        for item in Site.find_for_request(context["request"])
+        .root_page.get_children()
+        .live()
+        .in_menu()
+    ]
+    return menu
