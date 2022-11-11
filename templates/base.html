@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailuserbar tags %}
 {% load account socialaccount %}
 
 <!DOCTYPE html>
@@ -33,22 +33,7 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        <div class="navbar">
-            <div class="navbar__wrapper">
-                <div class="navbar__image">
-                    <img src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0" alt="">
-                </div>
-                <div class="navbar__menu">
-                    <div class="navbar__container">
-                        <a href="{% pageurl page.get_site.root_page.localized %}">Home page</a>
-                        <a href="{% slugurl 'about-us' %}">About us</a>
-                    </div>
-                    <a href="{% slugurl 'form-page' %}"> 
-                        <button class="contact_us">Contact us</button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        {% get_header %}
 
         {% block content %}{% endblock %}
 
