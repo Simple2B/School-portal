@@ -44,30 +44,6 @@
         {# Override this in templates to add extra javascript #}
         {% endblock %}
 
-        {% block footer %}
-            <div class="footer">
-                <div class="footer__container">
-                    
-                    <div class="footer__image">
-                        <img src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0" alt="">
-                    </div>
-                    <div class="footer__menu">
-                        <a href="{% pageurl page.get_site.root_page.localized %}">Home page</a>
-                        <a href="{% slugurl 'about-us' %}">About us</a>
-                    </div>
-                    <div class="footer__links">
-                        <p>any email</p>
-                        <p>any phone number</p>
-                        <p>any bot</p>
-                    </div>
-                    <div class="footer__button">
-                        <a href="{% slugurl 'form-page' %}">
-                            <button class="contact_us">Contact us</button>
-                        </a>
-                    </div>
-                    
-                </div>
-            </div>
-        {% endblock %}
+        {% get_footer %}
     </body>
 </html>
