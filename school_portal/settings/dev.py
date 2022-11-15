@@ -8,7 +8,7 @@ DEBUG = True
 
 # SECURITY WARNING: define the correct hosts in production!
 # TODO define correct hosts
-ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
