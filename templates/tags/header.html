@@ -1,4 +1,4 @@
-{% load wagtailcore_tags tags %}
+{% load wagtailcore_tags tags account socialaccount %}
 
 <div class="navbar">
     <div class="navbar__wrapper">
@@ -10,6 +10,7 @@
                 {% for item in header_menu %}
                     <a href="{% pageurl item %}">{{ item }}</a>
                 {% endfor %}
+                <a href="{% url 'account_login' %}">Login</a>
             </div>
             <a href="{% slugurl 'form-page' %}"> 
                 <button class="contact_us">Contact us</button>
