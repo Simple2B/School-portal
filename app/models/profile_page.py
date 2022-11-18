@@ -8,9 +8,10 @@ from app.models.profile import Profile
 
 class ProfilePage(Page):
     def get_context(self, request):
-        profile = Profile.objects.get(pk=request.user.pk)
         context = super().get_context(request)
-        context["profile"] = profile
+        if request.user.is_authenticated:
+            profile = Profile.objects.get(email=request.user.email)
+            context["profile"] = profile
         return context
 
     body = StreamField(
@@ -21,3 +22,5 @@ class ProfilePage(Page):
     )
 
     content_panels = Page.content_panels + [FieldPanel("body")]
+
+    # template = "app/profile_page.html"
