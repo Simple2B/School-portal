@@ -14,7 +14,7 @@
                 {% if user.is_authenticated %}
 
                     <div class="dropdown">
-                        <a href="{% slugurl 'profile-page' %}">{{ user }}</a>
+                        <a href="{% slugurl 'profile-page' %}">Profile</a>
                         <div class="dropdown-content">
                             {% if profile.school_class %}
                                 <a href="{% pageurl profile.school_class %}">Your class</a>
@@ -37,3 +37,12 @@
         </div>
     </div>
 </div>
+
+
+<!-- TODO -->
+<!-- {{ profile.school_class.gallery_images.title }}
+{% image profile.school_class.gallery_images.image fill-320x240 %}
+{% for im in profile.school_class.gallery_images.all %}
+    <a href="{% pageurl im %}">{{ im }}</a>
+    {% image im.image fill-320x240 %}
+{% endfor %} -->
