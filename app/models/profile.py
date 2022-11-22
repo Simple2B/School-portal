@@ -8,6 +8,7 @@ class Profile(Page):
     name = models.CharField(max_length=80)
     surname = models.CharField(max_length=80)
     age = models.CharField(max_length=80, blank=True)
+    email = models.CharField(max_length=255, unique=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
         null=True,
@@ -33,6 +34,7 @@ class Profile(Page):
     content_panels = Page.content_panels + [
         FieldPanel("name"),
         FieldPanel("surname"),
+        FieldPanel("email"),
         FieldPanel("age"),
         FieldPanel("image"),
         FieldPanel("role"),

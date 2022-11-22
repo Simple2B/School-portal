@@ -11,6 +11,7 @@ def create_profile(user: User) -> None:
         school_class=user.school_class,
         title=" ".join((user.last_name, user.first_name)),
         slug=user.pk,
+        email=user.email,
     )
     home = HomePage.objects.first()
     home.add_child(instance=p)

@@ -1,14 +1,34 @@
 {% extends "base.html" %}
-
+{% load wagtailimages_tags %}
 
 {% load wagtailcore_tags wagtailimages_tags static %}
 
 {% block content %}
-    <h1>Class page</h1>
+    <div class="content">
+        <div class="wrapper">
+            <div class="wrapper__wrapper">
+                <div class="page_title">
+                    <h1>Class: {{ page.title }}</h1>
+                </div>
+                <!-- {% for g in page.gallery_images.all %}
+                    {{ g }}<br>
+                    {% image g.image fill-320x240 %}<br>
+                {% endfor %} -->
 
-    {% for g in page.gallery_images.all %}
-        {{ g }}<br>
-        {% image g.image fill-320x240 %}<br>
-    {% endfor %}
+                <div class="wrapper__wrapper__content">
+                    {% for member in page.member.all %}
+                        <div class="wrapper__wrapper__content__col">
+                            <div class="wrapper__wrapper__content__col__image">
+                                {% image member.image fill-64x48 %}
+                            </div>
+                            <div class="wrapper__wrapper__content__col__data">
+                                {{ member }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

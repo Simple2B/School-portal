@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+    <div class="content">
+        <div class="wrapper">
+            <div class="wrapper__wrapper">
+                <div class="page_title">
+                    <h1>{{ page.title }}</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card__wrapper">
+                        <div class="card__image">
+                            {% image profile.image fill-320x240 %}
+                        </div>        
+                        
+                        <div class="card__container">
+                            <!-- <h4><b>John Doe</b></h4> -->
+                            <p>Name: {{ profile.name }}</p>
+                            <p>Surname: {{ profile.surname }}</p>
+                            {% if profile.age %}
+                                <p>Age: {{ profile.age }}</p>
+                            {% endif %}
+                            <p>Email: {{ profile.email }}</p>
+                        </div>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+
+
+
+        <!-- {{ page.body }} -->
+    </div>
+    
+
+{% endblock %}
