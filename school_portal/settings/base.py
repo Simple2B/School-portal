@@ -122,7 +122,7 @@ if DJANGO_ENV == "development":
             "USER": config("PG_USER"),
             "PASSWORD": config("PG_PASSWORD"),
             "HOST": "localhost",
-            "PORT": 5432,
+            "PORT": config("DB_PORT"),
         }
     }
 
