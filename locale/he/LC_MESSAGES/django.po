@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-23 08:59+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % "
+"1 == 0) ? 1: (n % 10 == 0 && n % 1 == 0 && n > 10) ? 2 : 3;\n"
+
+#: app/forms.py:11
+msgid "First name"
+msgstr "שם פרטי"
+
+#: app/forms.py:12
+msgid "Last name"
+msgstr "שם משפחה"
+
+#: app/forms.py:13
+msgid "Age"
+msgstr "גיל"
+
+#: app/forms.py:17 templates/tags/header.html:23
+msgid "Your class"
+msgstr "הכיתה שלך"
+
+#: core/models.py:27
+msgid "Title tag"
+msgstr "תג כותרת"
+
+#: core/models.py:32
+msgid "For search engines"
+msgstr "עבור מנועי החיפוש"
+
+#: core/models.py:38
+msgid "For site menus"
+msgstr "לתפריטי האתר"
+
+#: school_portal/settings/base.py:260
+msgid "English"
+msgstr "אנגלית"
+
+#: school_portal/settings/base.py:261
+msgid "Hebrew"
+msgstr "עִברִית"
+
+#: templates/account/login.html:6 templates/account/login.html:14
+#: templates/account/login.html:32
+msgid "Sign In"
+msgstr "להתחבר"
+
+#: templates/account/login.html:31
+msgid "Forgot Password?"
+msgstr "שכחת את הסיסמא?"
+
+#: templates/account/signup.html:5
+msgid "Signup"
+msgstr "הירשם"
+
+#: templates/account/signup.html:13 templates/account/signup.html:21
+msgid "Sign Up"
+msgstr "הירשם"
+
+#: templates/socialaccount/login.html:8
+#, python-format
+msgid "Connect %(provider)s"
+msgstr "חבר %(provider)s"
+
+#: templates/socialaccount/login.html:10
+#, python-format
+msgid "Sign In Via %(provider)s"
+msgstr "היכנס באמצעות %(provider)s"
+
+#: templates/socialaccount/login.html:17
+msgid "Continue"
+msgstr "לְהַמשִׁיך"
+
+#: templates/tags/footer.html:15
+msgid "any email"
+msgstr "כל אימייל"
+
+#: templates/tags/footer.html:16
+msgid "any phone number"
+msgstr "כל מספר טלפון"
+
+#: templates/tags/footer.html:17
+msgid "any bot"
+msgstr "כל בוט"
+
+#: templates/tags/footer.html:21
+msgid "Contact us"
+msgstr "צור קשר"
+
+#: templates/tags/header.html:20
+msgid "Profile"
+msgstr "פּרוֹפִיל"
+
+#: templates/tags/header.html:26
+msgid "Galleries"
+msgstr "גלריות"
+
+#: templates/tags/header.html:27
+msgid "Schedule"
+msgstr "לוח זמנים"
+
+#: templates/tags/header.html:31
+msgid "Logout"
+msgstr "להתנתק"
+
+#: templates/tags/header.html:33
+msgid "Login"
+msgstr "התחברות"
