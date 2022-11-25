@@ -1,5 +1,5 @@
 from django import template
-from app.utils import get_menu, get_contact_us_page
+from app.utils import get_menu
 from app.models import Profile
 from django.utils.functional import SimpleLazyObject
 
@@ -9,8 +9,6 @@ register = template.Library()
 
 @register.inclusion_tag("tags/header.html", takes_context=True)
 def get_header(context):
-    get_contact_us_page(context)
-
     response = {
         "request": context["request"],
         "header_menu": get_menu(context),

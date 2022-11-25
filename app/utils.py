@@ -24,15 +24,3 @@ def get_menu(context):
     menu = [current_home_page]
     [menu.append(item) for item in current_home_page.get_children().live().in_menu()]
     return menu
-
-
-def get_contact_us_page(context):
-    forms = [
-        item
-        for item in Site.find_for_request(
-            context["request"]
-        ).root_page.localized.get_children()
-    ]
-    print(forms[2])
-    print(type(forms[2]))
-    print(forms[2].__class__.__subclasses__())
