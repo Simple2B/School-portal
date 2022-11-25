@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-23 08:59+0000\n"
+"POT-Creation-Date: 2022-11-24 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgstr "שם משפחה"
 msgid "Age"
 msgstr "גיל"
 
-#: app/forms.py:17 templates/tags/header.html:23
+#: app/forms.py:17 templates/tags/header.html:22
 msgid "Your class"
 msgstr "הכיתה שלך"
 
@@ -72,17 +72,115 @@ msgstr "הירשם"
 msgid "Sign Up"
 msgstr "הירשם"
 
-#: templates/socialaccount/login.html:8
+#: templates/app/form_page.html:21
+msgid "Submit"
+msgstr "שלח"
+
+#: templates/app/home_page.html:23
+msgid "News:"
+msgstr "חֲדָשׁוֹת:"
+
+#: templates/app/info_page.html:16
+msgid ""
+"We are very cool school and so on and so on... We know how to properly "
+"educate children. Highly qualified teachers, an advanced curriculum, modern "
+"school facilities and much more await your children with us."
+msgstr ""
+"אנחנו מאוד מגניבים בית ספר וכו' וכו'... אנחנו יודעים איך נכוןלחנך ילדים. "
+"מורים בעלי כישורים גבוהים, תכנית לימודים מתקדמת, מודרניתמתקני בית ספר ועוד "
+"הרבה ממתינים לילדים שלכם איתנו."
+
+#: templates/app/info_page.html:23
+msgid "Our advantages"
+msgstr "היתרונות שלנו"
+
+#: templates/app/info_page.html:27
+msgid "Highly qualified teachers"
+msgstr "מורים בעלי כישורים גבוהים"
+
+#: templates/app/info_page.html:28
+msgid "An advanced curriculum"
+msgstr "תכנית לימודים מתקדמת"
+
+#: templates/app/info_page.html:29
+msgid "Modern school facilities"
+msgstr "מתקני בית ספר מודרניים"
+
+#: templates/app/info_page.html:30
+msgid "City center location"
+msgstr "מיקום במרכז העיר"
+
+#: templates/app/info_page.html:38
+msgid "Leadership"
+msgstr "מַנהִיגוּת"
+
+#: templates/app/info_page.html:44
+msgid "Vasyl Khmura"
+msgstr "ואסיל חמורה"
+
+#: templates/app/info_page.html:45
+msgid "Director 1"
+msgstr "במאי 1"
+
+#: templates/app/info_page.html:46
+#, fuzzy
+#| msgid ""
+#| "Sales & Human Relations enthusiast. Entrepreneur & Strategist. Innovation "
+#| "developer. I have 17 years of working experience in IT, "
+#| "Telecommunications & Financial industries in top global companies in "
+#| "managerial positions. With all my experience, I"
+msgid ""
+"Sales & Human Relations enthusiast. Entrepreneur & Strategist. Innovation "
+"developer. I have 17 years of working experience in IT, Telecommunications & "
+"Financial industries in top global companies in managerial positions. With "
+"all my experience, I'm helping businesses of different sizes & spheres to "
+"solve pain points, embrace strong sides, and discover opportunities to grow."
+msgstr ""
+"חובב מכירות ויחסי אנוש. יזם ואסטרטג. חדשנותמפתח. יש לי 17 שנות ניסיון בעבודה "
+"ב-IT, טלקומוניקציה ותעשיות פיננסיות בחברות גלובליות מובילות בתפקידי ניהול. "
+"עםכל הניסיון שלי, אני"
+
+#: templates/app/info_page.html:51
+msgid "Nikolay Chernov"
+msgstr "ניקולאי צ'רנוב"
+
+#: templates/app/info_page.html:52
+msgid "Director 2"
+msgstr "במאי 2"
+
+#: templates/app/info_page.html:53
+msgid ""
+"Director with more than 25 years experience. Object-Oriented Analysis and "
+"Design, Design Patterns, Best Programming Practices in C++ and C#, TDD (Test "
+"Driven Development), Qt, Cloud Application(Azure), Agile development with "
+"Scrum, client/server programming, TCP/IP and web protocols, Windows system "
+"programming, Multi-threading & IPC, Web Services, Git, SVN, TFS, Perforce, "
+"DDK/WIN PE build environment (NT Build), CMake. Last years focused on Web "
+"Application development on Python and TypeScript for implementing solution "
+"for small and middle businesses."
+msgstr ""
+"מנהל עם יותר מ-25 שנות ניסיון. ניתוח מונחה עצמים ועיצוב, תבניות עיצוב, שיטות "
+"תכנות מומלצות ב-C++ ו-C#, TDD (מבחןפיתוח מונע), Qt, יישום ענן(Azure), פיתוח "
+"זריז עםScrum, תכנות לקוח/שרת, TCP/IP ופרוטוקולי אינטרנט, מערכת Windowsתכנות, "
+"ריבוי השחלות ו-IPC, שירותי אינטרנט, Git, SVN, TFS, Perforce,סביבת בנייה DDK/"
+"WIN PE (NT Build), CMake. בשנים האחרונות התמקדו ברשתפיתוח יישומים על Python "
+"ו- TypeScript להטמעת פתרוןלעסקים קטנים ובינוניים."
+
+#: templates/app/info_page.html:62
+msgid "Our team"
+msgstr "הצוות שלנו"
+
+#: templates/socialaccount/login.html:9
 #, python-format
 msgid "Connect %(provider)s"
 msgstr "חבר %(provider)s"
 
-#: templates/socialaccount/login.html:10
+#: templates/socialaccount/login.html:11
 #, python-format
 msgid "Sign In Via %(provider)s"
 msgstr "היכנס באמצעות %(provider)s"
 
-#: templates/socialaccount/login.html:17
+#: templates/socialaccount/login.html:18
 msgid "Continue"
 msgstr "לְהַמשִׁיך"
 
@@ -98,26 +196,26 @@ msgstr "כל מספר טלפון"
 msgid "any bot"
 msgstr "כל בוט"
 
-#: templates/tags/footer.html:21
+#: templates/tags/footer.html:21 templates/tags/header.html:37
 msgid "Contact us"
 msgstr "צור קשר"
 
-#: templates/tags/header.html:20
+#: templates/tags/header.html:19
 msgid "Profile"
 msgstr "פּרוֹפִיל"
 
-#: templates/tags/header.html:26
+#: templates/tags/header.html:25
 msgid "Galleries"
 msgstr "גלריות"
 
-#: templates/tags/header.html:27
+#: templates/tags/header.html:26
 msgid "Schedule"
 msgstr "לוח זמנים"
 
-#: templates/tags/header.html:31
+#: templates/tags/header.html:30
 msgid "Logout"
 msgstr "להתנתק"
 
-#: templates/tags/header.html:33
+#: templates/tags/header.html:32
 msgid "Login"
 msgstr "התחברות"

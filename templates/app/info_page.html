@@ -1,54 +1,55 @@
 {% extends 'base.html' %}
 
-{% load wagtailcore_tags wagtailimages_tags static %}
+{% load wagtailcore_tags wagtailimages_tags static tags i18n %}
 
 
 {% block content %}
     <div class="content">
+        {% language_button %}
+
         <div class="page_title">
             <h1>{{ page.title }}</h1>
         </div>
         {% if page.type == 'about_us' %}
             <div class="about_us">
                 <div class="about_us__description">
-                    <p>We are very cool school and so on and so on... We know how to properly educate children. Highly qualified teachers, an advanced curriculum, modern school facilities and much more await your children with us.</p>
+                    <p>{% trans 'We are very cool school and so on and so on... We know how to properly educate children. Highly qualified teachers, an advanced curriculum, modern school facilities and much more await your children with us.' %}</p>
                 </div>
                 <img src="data:image/jpeg;base64,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" alt="">
             </div>
 
             <div class="our_advantages">
                 <div>
-                    <h1>Our advantages</h1>
+                    <h1>{% trans 'Our advantages' %}</h1>
                 </div>
                 <div class="advantages_list">
                     <ul>
-                        <li>Highly qualified teachers</li>
-                        <li>An advanced curriculum</li>
-                        <li>Modern school facilities</li>
-                        <li>City center location</li>
-                        <!-- <li>Advantage 5...</li> -->
+                        <li>{% trans 'Highly qualified teachers' %}</li>
+                        <li>{% trans 'An advanced curriculum' %}</li>
+                        <li>{% trans 'Modern school facilities' %}</li>
+                        <li>{% trans 'City center location' %}</li>
                     </ul>
                 </div>
             </div>
 
             <div class="leadership">
                 <div>
-                    <h1>Leadership</h1>
+                    <h1>{% trans 'Leadership' %}</h1>
                 </div>
 
                 <div class="leadership__lead">
                     <img src="https://www.simple2b.com/_next/image?url=%2Fjpg%2Fteam%2FV_Khmura.jpg&w=1920&q=60" alt="">
                     <div class="leadership__lead__description">
-                        <h2>Vasyl Khmura</h2>
-                        <p>Director 1<br>
-                            Sales & Human Relations enthusiast. Entrepreneur & Strategist. Innovation developer. I have 17 years of working experience in IT, Telecommunications & Financial industries in top global companies in managerial positions. With all my experience, I'm helping businesses of different sizes & spheres to solve pain points, embrace strong sides, and discover opportunities to grow.</p>
+                        <h2>{% trans 'Vasyl Khmura' %}</h2>
+                        <p>{% trans 'Director 1' %}<br>
+                            {% trans "Sales & Human Relations enthusiast. Entrepreneur & Strategist. Innovation developer. I have 17 years of working experience in IT, Telecommunications & Financial industries in top global companies in managerial positions. With all my experience, I'm helping businesses of different sizes & spheres to solve pain points, embrace strong sides, and discover opportunities to grow." %}</p>
                     </div>
                 </div>
                 <div class="leadership__lead">
                     <div class="leadership__lead__description">
-                        <h2>Nikolay Chernov</h2>
-                        <p>Director 2<br> 
-                            Director with more than 25 years experience. Object-Oriented Analysis and Design, Design Patterns, Best Programming Practices in C++ and C#, TDD (Test Driven Development), Qt, Cloud Application(Azure), Agile development with Scrum, client/server programming, TCP/IP and web protocols, Windows system programming, Multi-threading & IPC, Web Services, Git, SVN, TFS, Perforce, DDK/WIN PE build environment (NT Build), CMake. Last years focused on Web Application development on Python and TypeScript for implementing solution for small and middle businesses.</p>
+                        <h2>{% trans 'Nikolay Chernov' %}</h2>
+                        <p>{% trans 'Director 2' %}<br> 
+                            {% trans 'Director with more than 25 years experience. Object-Oriented Analysis and Design, Design Patterns, Best Programming Practices in C++ and C#, TDD (Test Driven Development), Qt, Cloud Application(Azure), Agile development with Scrum, client/server programming, TCP/IP and web protocols, Windows system programming, Multi-threading & IPC, Web Services, Git, SVN, TFS, Perforce, DDK/WIN PE build environment (NT Build), CMake. Last years focused on Web Application development on Python and TypeScript for implementing solution for small and middle businesses.' %}</p>
                     </div>
                     <img src="https://www.simple2b.com/_next/image?url=%2Fjpg%2Fteam%2FN_Chernov.jpg&w=1920&q=60" alt="">
                 </div>
@@ -57,7 +58,7 @@
             {% if teachers %}
                 <div class="our_team">
                     <div>
-                        <h1>Our team</h1>
+                        <h1>{% trans 'Our team' %}</h1>
                     </div>
                     <div class="our_team__teachers">
 
