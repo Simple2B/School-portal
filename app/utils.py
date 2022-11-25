@@ -22,5 +22,12 @@ def get_menu(context):
     """Function for header and footer. Returns menu items"""
     current_home_page = Site.find_for_request(context["request"]).root_page.localized
     menu = [current_home_page]
-    [menu.append(item) for item in current_home_page.get_children().live().in_menu()]
-    return menu
+    contact_us = None
+    # initialized contact_us for button except contact us
+    # menu is a variable that contents all buttons exept contact us
+    for item in current_home_page.get_children().live().in_menu():
+        if item.title not in ("Form page", "דף טופס"):
+            menu.append(item)
+        else:
+            contact_us = item
+    return contact_us, menu

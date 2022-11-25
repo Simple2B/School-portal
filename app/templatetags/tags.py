@@ -9,10 +9,12 @@ register = template.Library()
 
 @register.inclusion_tag("tags/header.html", takes_context=True)
 def get_header(context):
+    contact_us, header_menu = get_menu(context)
     response = {
         "request": context["request"],
-        "header_menu": get_menu(context),
+        "header_menu": header_menu,
         "user": context["request"].user,
+        "contact_us": contact_us,
     }
     if (
         not context["request"].user.is_anonymous
@@ -25,9 +27,12 @@ def get_header(context):
 
 @register.inclusion_tag("tags/footer.html", takes_context=True)
 def get_footer(context):
+    contact_us, footer_menu = get_menu(context)
+
     return {
         "request": context["request"],
-        "footer_menu": get_menu(context),
+        "footer_menu": footer_menu,
+        "contact_us": contact_us,
     }
 
 
