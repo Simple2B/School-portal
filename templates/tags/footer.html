@@ -17,9 +17,15 @@
             <p>{% trans 'any bot' %}</p>
         </div>
         <div class="footer__button">
-            <a href="{% pageurl contact_us %}">
-                <button class="contact_us">{% trans 'Contact us' %}</button>
-            </a>
+            {% if contact_us %}
+                <a href="{% pageurl contact_us %}"> 
+                    <button class="contact_us">{% trans 'Contact us' %}</button>
+                </a>
+            {% else %}
+                <a href="#"> 
+                    <button class="contact_us">{% trans 'Contact us' %}</button>
+                </a>
+            {% endif %}
         </div>
         
     </div>
