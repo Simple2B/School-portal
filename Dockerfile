@@ -1,5 +1,5 @@
 # Use an official Python runtime based on Debian 10 "buster" as a parent image.
-FROM python:3.9.5-slim-buster
+FROM python:3.9.5
 
 WORKDIR /app
 
