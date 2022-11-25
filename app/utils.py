@@ -1,5 +1,5 @@
-from wagtail.models import Site
-from app.models import HomePage, Profile, User
+from wagtail.models import Site, Locale
+from app.models import HomePage, Profile, User, FormPage
 
 
 def create_profile(user: User) -> None:
@@ -20,13 +20,19 @@ def create_profile(user: User) -> None:
 
 def get_menu(context):
     """Function for header and footer. Returns menu items"""
-
-    menu = [Site.find_for_request(context["request"]).root_page]
-    [
-        menu.append(item)
-        for item in Site.find_for_request(context["request"])
-        .root_page.get_children()
-        .live()
-        .in_menu()
-    ]
+    current_home_page = Site.find_for_request(context["request"]).root_page.localized
+    menu = [current_home_page]
+    [menu.append(item) for item in current_home_page.get_children().live().in_menu()]
     return menu
+
+
+def get_contact_us_page(context):
+    forms = [
+        item
+        for item in Site.find_for_request(
+            context["request"]
+        ).root_page.localized.get_children()
+    ]
+    print(forms[2])
+    print(type(forms[2]))
+    print(forms[2].__class__.__subclasses__())

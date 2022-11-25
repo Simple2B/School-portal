@@ -7,13 +7,16 @@ from modelcluster.fields import ParentalManyToManyField
 
 from app.blocks.base_stream_block import BaseStreamBlock
 from app.models.info_page import InfoPage
+from wagtail.models import Locale
 
 
 class HomePage(ExtPage):
     """Page with news and photos and additional settings."""
 
     def get_context(self, request):
-        news = InfoPage.objects.filter(type="news")
+        current_locale = Locale.objects.get(language_code=request.LANGUAGE_CODE)
+
+        news = InfoPage.objects.live().filter(type="news", locale=current_locale)
         context = super().get_context(request)
         context["news"] = news
         return context

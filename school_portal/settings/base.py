@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from decouple import config
+from django.utils.translation import gettext_lazy
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -57,12 +58,15 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     "meta",
     "wagtailmetadata",
+    "wagtail.locales",
+    "wagtail.contrib.simple_translation",
 ]
 
 SITE_ID = 1
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -87,6 +91,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.i18n",
             ],
         },
     },
@@ -167,7 +172,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "en"
 
 TIME_ZONE = "UTC"
 
@@ -177,6 +182,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+WAGTAIL_I18N_ENABLED = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -248,3 +254,14 @@ SOCIALACCOUNT_ADAPTER = "app.social_account_adapter.CustomSocialAccountAdapter"
 ACCOUNT_FORMS = {
     "signup": "app.forms.CustomUserCreationForm",
 }
+
+
+LANGUAGES = WAGTAIL_CONTENT_LANGUAGES = [
+    ("en", gettext_lazy("English")),
+    ("he", gettext_lazy("Hebrew")),
+]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = "en"
+
+LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]

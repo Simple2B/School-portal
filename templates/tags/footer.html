@@ -1,4 +1,4 @@
-{% load wagtailcore_tags tags %}
+{% load wagtailcore_tags tags i18n %}
 
 <div class="footer">
     <div class="footer__container">
@@ -8,17 +8,17 @@
         </div>
         <div class="footer__menu">
             {% for item in footer_menu %}
-                <a href="{% pageurl item %}">{{ item }}</a>
+                <a href="{% pageurl item %}">{{ item.title }}</a>
             {% endfor %}
         </div>
         <div class="footer__links">
-            <p>any email</p>
-            <p>any phone number</p>
-            <p>any bot</p>
+            <p>{% trans 'any email' %}</p>
+            <p>{% trans 'any phone number' %}</p>
+            <p>{% trans 'any bot' %}</p>
         </div>
         <div class="footer__button">
             <a href="{% slugurl 'form-page' %}">
-                <button class="contact_us">Contact us</button>
+                <button class="contact_us">{% trans 'Contact us' %}</button>
             </a>
         </div>
         

@@ -1,0 +1,11 @@
+{% load wagtailcore_tags i18n %}
+
+
+{% if page %}
+    {% for translation in page.get_translations.live %}
+        {% get_language_info for translation.locale.language_code as lang %}
+        <a class="default_button" href="{% pageurl translation %}" rel="alternate" hreflang="{{ language_code }}" style="color:black; background-color: white;">
+            {{ lang.name_local }}
+        </a>
+    {% endfor %}
+{% endif %}

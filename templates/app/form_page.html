@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags tags i18n %}
 
 {% block content %}
     <div class="content">
+        {% language_button %}
+
         <div class="wrapper">
             <div class="form_page">
                 <div class="page_title">
@@ -16,7 +18,7 @@
                     <form action="{% pageurl page %}" method="POST">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit" class="default_button">Submit</button>
+                        <button type="submit" class="default_button">{% trans 'Submit' %}</button>
                     </form>
                 </div>
             </div>

@@ -7,6 +7,7 @@ from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
+from django.conf.urls.i18n import i18n_patterns
 
 # from app.views import CustomSignupView
 
@@ -14,7 +15,6 @@ urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
-    path("search/", search_views.search, name="search"),
     # NOTE make custom sign up/sign in or remove`
     # path('signup/', CustomSignupView.as_view()),
     path("", include("allauth.urls")),
@@ -29,12 +29,14 @@ if settings.DEBUG:
     urlpatterns += staticfiles_urlpatterns()
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns = urlpatterns + [
+urlpatterns = urlpatterns + i18n_patterns(
     # For anything not caught by a more specific rule above, hand over to
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
+    path("search/", search_views.search, name="search"),
     path("", include(wagtail_urls)),
+    # prefix_default_language=False,
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:
     #    path("pages/", include(wagtail_urls)),
-]
+)
