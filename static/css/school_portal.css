@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/simpler');
+
+* {
+    font-family: Barlow;
+}
+
 .footer {
     background-color: rgb(31, 30, 30);
     width: 100%;
@@ -103,9 +110,10 @@
 }
 
 .content {
-    width: 100%;
+    width: 80%;
     min-height: 500px;
-    margin-bottom: 50px;
+    margin: 0 10% 50px 10%;
+    border: 1px solid red;
 }
 
 a {
@@ -430,4 +438,112 @@ content: '✓';
 
 .wrapper__wrapper__content__col__data {
     width: 80%;
+}
+
+/* ------------------------------------------CAREER CSS------------------------------------------- */
+
+.career_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.catgs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.catg {
+    width: 200px;
+    height: 50px;
+    border: 2px solid;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.careers_content {
+    flex-wrap: wrap;
+    display: flex;
+    width: 100%;
+    height: 500px;
+    flex-direction: column;
+}
+
+.career_name {
+    width: 40%;
+}
+
+.career_requirements {
+    width: 60%;
+}
+
+.requirement {
+    font-family: Barlow;
+}
+
+.careers_block {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.requirements_heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: #1d1b4c;
+    font-family: Simpler;
+    margin: 5px 0 5px 0;
+}
+
+.job_description {
+    font-size: 21px;
+    color: #00cdb9;
+    font-family: Simpler;
+    letter-spacing: 2px;
+}
+
+.career_title {
+    font-family: Simpler;
+    font-size: 60px;
+    margin: 0;
+}
+
+.career_title_bold {
+    font-family: Simpler;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.career_description {
+    font-size: 18px;
+    color: #183b56;
+    line-height: 1.44;
+}
+
+.apply_button {
+    font-family: Simpler;
+    font-size: 20px;
+    text-align: center;
+    color: #1d1b4c;
+
+    width: 167px;
+    height: 55px;
+    border-radius: 5px;
+    box-shadow: 5px 21px 40px 0 rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(107deg, #00ffe6 1%, #00f9d9 100%);
+    padding: 2px 0 10px 0;
+}
+
+.apply_button_text {}
+
+@media screen and (max-width: 1100px) {
+    .careers_content {
+        flex-direction: column;
+    }
 }
