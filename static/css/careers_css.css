@@ -8,6 +8,7 @@
 .content {
     width: 80%;
     min-height: 500px;
+    min-width: 550px;
     margin: 0 10% 50px 10%;
     border: 1px solid red;
 }
@@ -122,16 +123,6 @@
     margin: 5px 0 5px 0;
 }
 
-/* @media screen and (max-width: 1100px) {
-    .careers_content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-}  */
-
-
 @media screen and (max-width: 1100px) {
     .catgs {
         display: flex;
@@ -144,3 +135,17 @@
         width: 170px;
     }
 }
+
+@media screen and (max-width: 1100px) {
+    .career_content__item__adv {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .career_content__item__disadv {
+        width: 450px;
+    }
+}
+
+.catg:hover {background-color: #00cdb9; color: white}
