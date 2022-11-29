@@ -1,8 +1,76 @@
 {% load wagtailcore_tags tags account socialaccount %}
-{% load wagtailimages_tags i18n %}
+{% load wagtailimages_tags i18n static%}
 
 
-<div class="navbar">
+
+
+<div class="header">
+    <div class="header_wrapper">
+        <div class="logo_wrapper">
+            <p class="logo">Globalbit<span class="logo_underscore">_</span></p>
+        </div>
+        <div class="menu">
+            <ul class="menu_list">
+                <li class="menu_list__item">Solutions</li>
+                <li class="menu_list__item">Services</li>
+                <li class="menu_list__item">Projects</li>
+                <li class="menu_list__item">About us</li>
+                <li class="menu_list__item">Blog</li>
+                <li class="menu_list__item">
+                    <div class="careers_menu">Careers</div>
+                    <div class="careers_highlight"></div>
+                </li>
+                <li class="menu_list__item">Contact us</li>
+            </ul>
+        </div>
+        <div class="features">
+            <div class="language">
+                <p class="language_item">English</p>
+            </div>
+            <div class="rectangle">
+                <img src="{{MEDIA_URL}}group-12_2022-11-29/group-12.png" alt="rectangle"/>
+            </div>
+            <div class="mobile_menu_button">
+                <img width="50px" height="50px" src="{{MEDIA_URL}}3388823.png" alt=""/>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile_menu">
+        <div class="mobile_menu_container">
+            <div class="mobile_menu__upper">
+                <div class="back">
+                    <img width="50px" height="50px" src="{{MEDIA_URL}}index.png" alt="rectangle"/>
+                </div>
+                <div class="mobile_features">
+                    <div class="mobile_language">
+                        <p class="mobile_language_item">English</p>
+                    </div>
+                    <div class="mobile_rectangle">
+                        <img src="{{MEDIA_URL}}group-12_2022-11-29/group-12.png" alt="rectangle"/>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile_menu__lower">
+                <ul class="mobile_menu_list">
+                    <li class="mobile_menu_list__item">Solutions</li>
+                    <li class="mobile_menu_list__item">Services</li>
+                    <li class="mobile_menu_list__item">Projects</li>
+                    <li class="mobile_menu_list__item">About us</li>
+                    <li class="mobile_menu_list__item">Blog</li>
+                    <li class="mobile_menu_list__item">
+                        <div class="mobile_careers_menu">Careers</div>
+                        <div class="mobile_careers_highlight"></div>
+                    </li>
+                    <li class="mobile_menu_list__item">Contact us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="navbar">
     <div class="navbar__wrapper">
         <div class="navbar__image">
             <img src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0" alt="">
@@ -33,7 +101,7 @@
                 {% else %}
                     <a href="{% url 'account_login' %}">{% trans 'Login' %}</a>
                 {% endif %} -->
-
+<!-- 
             </div>
             {% if contact_us %}
                 <a href="{% pageurl contact_us %}"> 
@@ -46,7 +114,7 @@
             {% endif %}
         </div>
     </div>
-</div>
+</div> --> 
 
 
 <!-- TODO -->

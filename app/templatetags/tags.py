@@ -2,6 +2,7 @@ from django import template
 from app.utils import get_menu
 from app.models import Profile
 from django.utils.functional import SimpleLazyObject
+from django.conf import settings
 
 
 register = template.Library()
@@ -10,11 +11,17 @@ register = template.Library()
 @register.inclusion_tag("tags/header.html", takes_context=True)
 def get_header(context):
     contact_us, header_menu = get_menu(context)
+
+    print("MEDIA_URL: " + settings.MEDIA_URL)
+    print("MEDIA_ROOT: " + settings.MEDIA_ROOT)
+    print("====================================================================")
+
     response = {
         "request": context["request"],
         "header_menu": header_menu,
         "user": context["request"].user,
         "contact_us": contact_us,
+        "MEDIA_URL": settings.MEDIA_URL,
     }
     if (
         not context["request"].user.is_anonymous

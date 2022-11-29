@@ -23,8 +23,10 @@
 
         {# Global stylesheets #}
         <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/school_portal.css' %}"> -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/careers_css.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/header_css.css' %}">
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
@@ -40,6 +42,7 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/school_portal.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/header.js' %}"></script>
 
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
