@@ -12,7 +12,7 @@
             "args": [
                 "runserver",
                 // "migrate",
-                "--settings=config.settings.dev"
+                // "--settings=config.settings.dev"
             ],
             "django": true,
             "justMyCode": true
