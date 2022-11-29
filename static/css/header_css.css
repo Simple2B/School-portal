@@ -95,6 +95,61 @@
     display: none;
 }
 
+.mobile_menu {
+    display: none;
+    background-color: #1d1b4c;
+    color: white;
+}
+
+.mobile_menu_container {
+    width: 80%;
+    margin: 0 10%;
+    padding: 30px 0 0 0;
+}
+
+.mobile_menu_list__item {
+    list-style-type: none;
+}
+
+.mobile_menu__upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mobile_features {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mobile_language {
+    width: 100px;
+    height: 42px;
+    border-radius: 21px;
+    border: solid 1px #fff;
+    background-color: rgba(255, 255, 255, 0.14);
+
+    /* width: 54px;
+    height: 24px; */
+    font-family: Simpler;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile_rectangle {
+    width: 44px;
+    height: 32px;
+    margin: 3px 0 3px 30px;
+    padding: 5px 11px 8px 13px;
+    border-radius: 50% 0 0 50%;
+    background-color: rgb(225, 181, 181);
+    position: absolute;
+    right: 0;
+}
+
 @media screen and (max-width: 1100px) {
     .menu_list {
         display: none;
