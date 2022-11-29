@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/simpler');
+
+.footer {
+    background-color: #1d1b4c;
+    color: white;
+    font-family: Simpler;
+}
+
+.footer__container {
+    height: 500px;
+    width: 80%;
+    margin: 0 10%;
+    padding: 45px 0;
+}
+
+.phone {
+    color: #00cdb9;
+}
+.phone_number {font-weight: bold;}
+
+.sm_icons {
+    display: flex;
+    flex-direction: row;
+}
+
+.sm_icon {
+    width: 25px;
+    margin: 5px;
+    border: 1px solid white;
+    border-radius: 50%;
+}

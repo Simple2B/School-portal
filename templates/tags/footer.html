@@ -2,31 +2,26 @@
 
 <div class="footer">
     <div class="footer__container">
-        
-        <div class="footer__image">
-            <img src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0" alt="">
+        <div class="footer_upper">
+            <div class="contacts">
+                <div class="lets_talk_block">
+                    <p class="lets_talk">LET'S TALK</p>
+                    <p class="get_in_touch">Get in touch, we&rsquo;re user-friendly!</p>
+                </div>
+                <div class="phone">
+                    <p class="phone_number">03-300-8126</p>
+                    <p class="mail">info@globalbit.co.il</p>
+                </div>
+                <div class="social_media">
+                    <p class="connect">Connect with us</p>
+                    <div class="sm_icons">
+                        <div class="sm_icon">F</div>
+                        <div class="sm_icon">in</div>
+                    </div>
+                </div>
+            </div>
+            <div class="white_form"></div>
         </div>
-        <div class="footer__menu">
-            {% for item in footer_menu %}
-                <a href="{% pageurl item %}">{{ item.title }}</a>
-            {% endfor %}
-        </div>
-        <div class="footer__links">
-            <p>{% trans 'any email' %}</p>
-            <p>{% trans 'any phone number' %}</p>
-            <p>{% trans 'any bot' %}</p>
-        </div>
-        <div class="footer__button">
-            {% if contact_us %}
-                <a href="{% pageurl contact_us %}"> 
-                    <button class="contact_us">{% trans 'Contact us' %}</button>
-                </a>
-            {% else %}
-                <a href="#"> 
-                    <button class="contact_us">{% trans 'Contact us' %}</button>
-                </a>
-            {% endif %}
-        </div>
-        
+        <div class="footer_lower"></div>
     </div>
 </div>
