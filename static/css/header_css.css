@@ -1,0 +1,121 @@
+@import url('https://fonts.cdnfonts.com/css/simpler');
+
+.header {
+    /* background-image: url("bitmap_2022-11-29/bitmap.webp"); */
+    /* background-color: #cccccc; */
+    padding: 30px 0 0 0;
+}
+
+.header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    height: 285px;
+    margin: 0 0 0 5%;
+}
+
+.menu_list {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu_list__item {
+    margin: 5px;
+    padding: 5px 10px;
+    font-family: Simpler;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1d1b4c;
+
+}
+
+.logo {
+    width: 200px;
+    height: 48px;
+    margin: 0 34px 0 0;
+    font-family: Simpler;
+    font-size: 40px;
+    font-weight: bold;
+    color: #1d1b4c;
+}
+
+.logo_underscore {
+    color: #00ffe6;  
+}
+
+.features {
+    display: flex;
+    width: 200px;
+    height: 48px;
+    margin: 0 0 0 54px;
+    justify-content: space-between;
+}
+
+.language_item {
+    width: 84px;
+    height: 34px;
+    border: solid 1px #1d1b4c;
+    border-radius: 21px;
+    font-family: Simpler;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1d1b4c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rectangle {
+    width: 44px;
+    height: 32px;
+    margin: 3px 0 3px 30px;
+    padding: 9px 11px 8px 13px;
+    border-radius: 100px;
+    background-color: #1d1b4c;
+    position: absolute;
+    right: -25px;
+    /* margin: 0 0 0 90px; */
+}
+
+.careers_menu {
+    /* z-index: 3; */
+}
+
+.careers_highlight {
+    height: 10px;
+    width: 70px;
+    position: relative;
+    top: -10px;
+    background-color: #00ffe6;
+    /* z-index: 2; */
+    z-index: -1;
+}
+
+.mobile_menu_button {
+    display: none;
+}
+
+@media screen and (max-width: 1100px) {
+    .menu_list {
+        display: none;
+    }
+    .mobile_menu_button {
+        display: block;
+    }
+    .language {
+        display: none;
+    }
+    .rectangle {
+        display: none;
+    }
+    .features {
+        justify-content: end;
+        padding-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .menu_list__item {
+        padding: 5px 5px;
+    }
+}

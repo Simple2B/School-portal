@@ -8,7 +8,7 @@
 .content {
     width: 80%;
     min-height: 500px;
-    min-width: 550px;
+    /* min-width: 550px; */
     margin: 0 10% 50px 10%;
     border: 1px solid red;
 }
