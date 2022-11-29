@@ -1,9 +1,7 @@
 @import url('https://fonts.cdnfonts.com/css/simpler');
 
 .header {
-    /* background-image: url("bitmap_2022-11-29/bitmap.webp"); */
-    /* background-color: #cccccc; */
-    padding: 30px 0 0 0;
+    background-image: url("/media/bitmap_2022-11-29/bitmap.webp");
 }
 
 .header_wrapper {
@@ -12,21 +10,7 @@
     width: 95%;
     height: 285px;
     margin: 0 0 0 5%;
-}
-
-.menu_list {
-    display: flex;
-    list-style-type: none;
-}
-
-.menu_list__item {
-    margin: 5px;
-    padding: 5px 10px;
-    font-family: Simpler;
-    font-size: 20px;
-    font-weight: bold;
-    color: #1d1b4c;
-
+    padding: 15px 0 0 0;
 }
 
 .logo {
@@ -42,6 +26,21 @@
 .logo_underscore {
     color: #00ffe6;  
 }
+
+.menu_list {
+    display: flex;
+    list-style-type: none;
+}    
+
+.menu_list__item {
+    margin: 5px;
+    padding: 5px 10px;
+    font-family: Simpler;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1d1b4c;
+
+}    
 
 .features {
     display: flex;
@@ -77,10 +76,6 @@
     /* margin: 0 0 0 90px; */
 }
 
-.careers_menu {
-    /* z-index: 3; */
-}
-
 .careers_highlight {
     height: 10px;
     width: 70px;
@@ -99,6 +94,8 @@
     display: none;
     background-color: #1d1b4c;
     color: white;
+    font-family: Simpler;
+    font-weight: bold;
 }
 
 .mobile_menu_container {
@@ -107,11 +104,27 @@
     padding: 30px 0 0 0;
 }
 
+.back {
+    position: relative;
+    left: -30px;
+}
+
 .mobile_menu_list__item {
     list-style-type: none;
+    margin: 48px 0;
+}
+
+.mobile_menu_list__item a {
+    text-decoration: none;
+    color: white;
+}
+
+.mobile_menu_list__item a:active {
+    color: cornflowerblue;
 }
 
 .mobile_menu__upper {
+    padding: 15px 0 0 0;
     display: flex;
     justify-content: space-between;
 }
@@ -140,12 +153,13 @@
 }
 
 .mobile_rectangle {
-    width: 44px;
+    width: 32px;
     height: 32px;
     margin: 3px 0 3px 30px;
-    padding: 5px 11px 8px 13px;
+    padding: 8px 11px 4px 12px;
     border-radius: 50% 0 0 50%;
-    background-color: rgb(225, 181, 181);
+    background-color: #1d1b4c;
+    border: 1px solid white;
     position: absolute;
     right: 0;
 }
