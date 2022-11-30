@@ -1,7 +1,7 @@
 {% load static wagtailcore_tags wagtailuserbar tags %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
     <head>
         <meta charset="utf-8" />
         <title>
@@ -13,6 +13,13 @@
             {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
+        <meta property="og:locale" content="en" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Check title!" />
+        <meta property="og:description" content="Check description!" />
+        <meta property="og:image" content="" />
+        <meta property="og:site_name" content="Check site name" />
+
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
