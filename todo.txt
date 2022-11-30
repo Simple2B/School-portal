@@ -1,6 +1,7 @@
 Отцентрировать обложку хедера
 Подчёркивание Careers
-Выровнять кнопку Apply here
 Careers desription размеры шрифтов
 Requirements размеры шрифтов
 Назначить цвета категорий
+Requirements & Advantages - Read more/Less in mobile version
+Requirements & Advantages - Block underline
