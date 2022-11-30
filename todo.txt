@@ -1,5 +1,7 @@
 Отцентрировать обложку хедера
 Подчёркивание Careers
 Categories - Scroll to given section
+Categories - Fix Software development box
 Requirements & Advantages - Read more/Less in mobile version
 Footer
+Mobile menu routing
