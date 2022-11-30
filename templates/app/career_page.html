@@ -20,9 +20,15 @@
 
     <div class="catgs">
       {% for catg in categories %}
-      <div class="catg">{{ catg }}</div>
+        {% with count=forloop.counter %}
+        {% if forloop.counter > 3 %}
+            <div class="catg catg_{{count|add:'-3'}}">{{ catg }}</div>
+        {% else %}
+            <div class="catg catg_{{count}}">{{ catg }}</div>
+        {% endif %}
+        <!-- <div>{{count}}</div> -->
+      {% endwith %}
       {% endfor %}
-      <div class="catg">Check category</div>
     </div>
 
     <div class="careers_block">
@@ -107,6 +113,7 @@
           </div>
         </div>
       </div>
+      <hr>
       {% endfor %}
     </div>
   </div>

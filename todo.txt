@@ -1,7 +1,5 @@
 Отцентрировать обложку хедера
 Подчёркивание Careers
-Careers desription размеры шрифтов
-Requirements размеры шрифтов
-Назначить цвета категорий
+Categories - Scroll to given section
 Requirements & Advantages - Read more/Less in mobile version
 Requirements & Advantages - Block underline

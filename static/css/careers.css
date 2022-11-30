@@ -7,7 +7,7 @@
     /* min-width: 550px; */
     margin: 0 10% 50px 10%;
     font-family: Barlow;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .career_content {
@@ -26,14 +26,44 @@
 
 .catg {
     width: 200px;
-    height: 50px;
+    height: 70px;
     margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 700;
+    color: #1d1b4c;
+    cursor: pointer;
+}
 
+.catg_1 {
     border: solid 3px #00cdb9;
-    background-color: #fff;
+}
+
+.catg_1:hover {
+    border: solid 3px #fff;
+    background-color: #00cdb9;
+    color: white;
+}
+
+.catg_2 {
+    border: solid 3px #1d1b4c;
+}
+
+.catg_2:hover {
+    border: solid 3px #fff;
+    background-color: #1d1b4c;
+    color: white;
+}
+
+.catg_3 {
+    border: solid 3px #dcbb7f;
+}
+
+.catg_3:hover {
+    border: solid 3px #fff;
+    background-color: #dcbb7f;
+    color: white;
 }
 
 .careers_content {
@@ -163,8 +193,6 @@
         width: 450px;
     }
 }
-
-.catg:hover {background-color: #00cdb9; color: white}
 
 .page_title {
     height: 120px;
