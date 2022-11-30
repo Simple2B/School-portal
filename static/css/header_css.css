@@ -34,7 +34,7 @@
 
 .menu_list__item {
     margin: 5px;
-    padding: 5px 10px;
+    padding: 5px 0;
     font-family: Simpler;
     font-size: 20px;
     font-weight: bold;
@@ -50,30 +50,40 @@
     justify-content: space-between;
 }
 
+.language {
+    padding: 5px 15px 0 0;
+}
+
 .language_item {
-    width: 84px;
     height: 34px;
-    border: solid 1px #1d1b4c;
-    border-radius: 21px;
-    font-family: Simpler;
-    font-size: 20px;
-    font-weight: bold;
-    color: #1d1b4c;
+    width: 84px;
+    padding: 0 7px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: solid 1px #1d1b4c;
+    border-radius: 21px;
+    color: #1d1b4c;
+    font-family: Simpler;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.rectangle {
+.dis_person {
     width: 44px;
-    height: 32px;
-    margin: 3px 0 3px 30px;
-    padding: 9px 11px 8px 13px;
+    height: 20px;
+    margin: 5px 0 0 0;
+    padding: 5px 11px 11px 13px;
     border-radius: 100px;
     background-color: #1d1b4c;
     position: absolute;
     right: -25px;
     /* margin: 0 0 0 90px; */
+}
+
+#dis_person {
+    height: 24px;
+    width: 24px;
 }
 
 .careers_highlight {
@@ -135,14 +145,13 @@
 }
 
 .mobile_language {
-    width: 100px;
     height: 42px;
+    width: 100px;
+    margin: 3px 10px 0 0;
     border-radius: 21px;
     border: solid 1px #fff;
     background-color: rgba(255, 255, 255, 0.14);
 
-    /* width: 54px;
-    height: 24px; */
     font-family: Simpler;
     font-size: 20px;
     font-weight: bold;
@@ -156,7 +165,7 @@
     width: 32px;
     height: 32px;
     margin: 3px 0 3px 30px;
-    padding: 7px 11px 5px 12px;
+    padding: 7px 3px 5px 10px;
     border-radius: 50% 0 0 50%;
     background-color: white;
     border: 1px solid #1d1b4c;
@@ -164,10 +173,7 @@
     right: 0;
 }
 
-#dis_person {
-    height: 30px;
-    width: 30px;
-}
+
 
 @media screen and (max-width: 1100px) {
     .menu_list {
@@ -179,7 +185,7 @@
     .language {
         display: none;
     }
-    .rectangle {
+    .dis_person {
         display: none;
     }
     .features {
@@ -188,8 +194,8 @@
     }
 }
 
-@media screen and (max-width: 1350px) {
+/* @media screen and (max-width: 1350px) {
     .menu_list__item {
         padding: 5px 5px;
     }
-}
+} */
