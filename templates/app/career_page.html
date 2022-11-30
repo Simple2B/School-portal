@@ -26,7 +26,6 @@
         {% else %}
             <div class="catg catg_{{count}}">{{ catg }}</div>
         {% endif %}
-        <!-- <div>{{count}}</div> -->
       {% endwith %}
       {% endfor %}
     </div>
@@ -113,7 +112,9 @@
           </div>
         </div>
       </div>
-      <hr>
+      {% if forloop.counter < careers|length %}
+        <hr>
+      {% endif %}
       {% endfor %}
     </div>
   </div>

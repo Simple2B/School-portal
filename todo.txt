@@ -2,4 +2,4 @@
 Подчёркивание Careers
 Categories - Scroll to given section
 Requirements & Advantages - Read more/Less in mobile version
-Requirements & Advantages - Block underline
+Footer
