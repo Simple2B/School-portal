@@ -214,3 +214,89 @@
     top: -30px;
     z-index: -1;
 }
+
+.cv {
+    display: flex;
+    justify-content: center;
+    width: 890px;
+    height: 638px;
+    background-color: #1e1c50;
+}
+
+.cv_form {
+    width: 760px;
+    height: 526px;
+    background-color: white;
+}
+
+.cv_container {
+    /* padding: 46px 96px; */
+    width: 90;
+    padding: 5% 10%;
+}
+
+.cv_title {
+    font-family: Simpler;
+    font-size: 32.4px;
+    font-weight: bold;
+    color: #1d1b4c;
+}
+
+.cv_slogan {
+    font-family: Simpler;
+    font-size: 21.6px;
+    color: #1d1b4c;
+}
+
+.cv_text {
+    padding: 0 0 39px 0;
+}
+
+.cv_input {
+    width: 269px;
+    height: 57px;
+    border-radius: 5px;
+    border: solid 1px #1d1b4c;
+    font-family: Simpler;
+    font-size: 18px;
+    color: #1d1b4c;
+}
+
+::placeholder {
+    transform: translateX(+10px);
+}
+
+.cv_block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding: 12px 0;
+}
+
+.cv_textfield {
+    width: 100%;
+    height: 93px;
+    border-radius: 5px;
+    border: solid 1px #1d1b4c;
+    font-family: Simpler;
+    font-size: 18px;
+    color: #1d1b4c;
+}
+
+.cv_button {
+    width: 168px;
+    height: 57px;
+    border-radius: 5px;
+    box-shadow: 5px 21px 40px 0 rgba(0, 0, 0, 0.2); 
+    background-color: #00ffe6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cv_send {
+    font-family: Simpler;
+    font-size: 20px;
+    color: #1d1b4c;
+}
