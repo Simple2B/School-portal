@@ -27,19 +27,23 @@
     color: #00ffe6;  
 }
 
+.menu {
+    width: 80%;
+}
+
 .menu_list {
     display: flex;
     list-style-type: none;
+    justify-content: space-between;
 }    
 
 .menu_list__item {
-    margin: 5px;
+    margin: 5px 0;
     padding: 5px 0;
     font-family: Simpler;
     font-size: 20px;
     font-weight: bold;
     color: #1d1b4c;
-
 }    
 
 .features {
@@ -51,7 +55,7 @@
 }
 
 .language {
-    padding: 5px 15px 0 0;
+    padding: 5px 10% 0 0;
 }
 
 .language_item {
@@ -194,8 +198,8 @@
     }
 }
 
-/* @media screen and (max-width: 1350px) {
+@media screen and (max-width: 1280px) {
     .menu_list__item {
-        padding: 5px 5px;
+        font-size: 18px;
     }
-} */
+}
