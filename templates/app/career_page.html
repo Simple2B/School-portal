@@ -77,5 +77,37 @@
             </div>
         </div>
             {{ page.body }}
+
+            <br>
+            
+            <div class="cv">
+                <form method="#" class="cv_form">
+                    {% csrf_token %}
+                    <div class="cv_container">
+                        <div class="cv_text">
+                            <p class="cv_title">Upload your CV</p>
+                            <p class="cv_slogan">You are one step closer to join us</p>
+                        </div>
+                        <div class="cv_block">
+                            <input type="text" class="cv_input" placeholder="Full name">
+                            <input type="text" class="cv_input" placeholder="Phone number">
+                        </div>
+                        <div class="cv_block">
+                            <input type="text" class="cv_input" placeholder="Email">
+                            <input type="text" class="cv_input" placeholder="Upload CV">
+                        </div>
+                        <div class="cv_block">
+                            <input type="text" class="cv_textfield" placeholder="How can we help?">
+                        </div>
+                        <div class="cv_button">
+                            <p class="cv_send">Send</p>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <br>
+
     </div>
 {% endblock %}
