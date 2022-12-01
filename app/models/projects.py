@@ -12,16 +12,33 @@ class ProjectsPage(Page):
         context["projects"] = [
             {
                 "name": "FastAPI Project",
+                "categorie": "medical",
                 "description": "The Best FastAPI Project",
                 "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum distinctio nemo harum doloribus. Accusantium mollitia sapiente, quis alias rem aperiam. Unde dicta deleniti, explicabo eum aut nobis voluptates ex asperiores.",
-                "project_picture": "FastAPI Project",
+                "project_picture": "projects/project_01.png",
             },
-            "JS Project",
-            "Django Project",
-            "ML Project",
+            {
+                "name": "JS Project",
+                "categorie": "mobility",
+                "description": "The Best FastAPI Project",
+                "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum distinctio nemo harum doloribus. Accusantium mollitia sapiente, quis alias rem aperiam. Unde dicta deleniti, explicabo eum aut nobis voluptates ex asperiores.",
+                "project_picture": "projects/project_01.png",
+            },
+            {
+                "name": "Django Project",
+                "categorie": "ifrastructure",
+                "description": "The Best FastAPI Project",
+                "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum distinctio nemo harum doloribus. Accusantium mollitia sapiente, quis alias rem aperiam. Unde dicta deleniti, explicabo eum aut nobis voluptates ex asperiores.",
+                "project_picture": "projects/project_01.png",
+            },
+            {
+                "name": "ML Project",
+                "categorie": "cultural",
+                "description": "The Best FastAPI Project",
+                "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum distinctio nemo harum doloribus. Accusantium mollitia sapiente, quis alias rem aperiam. Unde dicta deleniti, explicabo eum aut nobis voluptates ex asperiores.",
+                "project_picture": "projects/project_01.png",
+            },
         ]
-
-        print(context)
         return context
 
     question = models.CharField(max_length=255, default="")

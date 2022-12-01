@@ -1,0 +1,39 @@
+.project_block {
+    display: flex;
+    color: #183b56;
+}
+
+.project_details {
+    padding: 20px 5% 0 7%;
+}
+
+.project_categorie {
+    text-transform: uppercase;
+}
+
+.project_name {
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.project_description {
+    color: #183b56;
+    margin-bottom: 35px;
+}
+
+.project_info {
+    color: #183b56;
+    margin-bottom: 50px;
+}
+
+.view_project {
+    height: 50px;
+    width: 150px;
+    background-color: aqua;
+}
+
+.project_image {
+    /* height: 560px; */
+    /* width: 720px; */
+    width: 100%;
+}
