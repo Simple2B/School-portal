@@ -1,27 +1,92 @@
 {% load wagtailcore_tags tags i18n %}
 
 <div class="footer">
-    <div class="footer__container">
-        <div class="footer_upper">
-            <div class="contacts">
-                <div class="lets_talk_block">
-                    <p class="lets_talk">LET'S TALK</p>
-                    <p class="get_in_touch">Get in touch, we&rsquo;re user-friendly!</p>
-                </div>
-                <div class="phone">
-                    <p class="phone_number">03-300-8126</p>
-                    <p class="mail">info@globalbit.co.il</p>
-                </div>
-                <div class="social_media">
-                    <p class="connect">Connect with us</p>
-                    <div class="sm_icons">
-                        <div class="sm_icon">F</div>
-                        <div class="sm_icon">in</div>
-                    </div>
-                </div>
-            </div>
-            <div class="white_form"></div>
+  <div class="footer__container">
+    <div class="footer_upper">
+      <div class="contacts">
+        <div class="lets_talk_block">
+          <p class="lets_talk">LET'S TALK</p>
+          <p class="get_in_touch">Get in touch, we&rsquo;re user-friendly!</p>
         </div>
-        <div class="footer_lower"></div>
+        <div class="phone">
+          <p class="phone_number">03-300-8126</p>
+          <p class="mail">info@globalbit.co.il</p>
+        </div>
+        <div class="social_media">
+          <p class="connect">Connect with us</p>
+          <div class="sm_icons">
+            <div class="sm_icon fb_icon">f</div>
+            <div class="sm_icon">in</div>
+          </div>
+        </div>
+      </div>
+      <form method="#" class="cv_form footer_form">
+        {% csrf_token %}
+        <div class="cv_container">
+          <div class="cv_text">
+            <p class="cv_title">Contact us</p>
+            <p class="cv_slogan">We&rsquo;ll get back to you shortly</p>
+          </div>
+          <div class="cv_block">
+            <input type="text" class="cv_input" placeholder="Name" />
+            <input type="text" class="cv_input" placeholder="Phone number" />
+          </div>
+          <div class="cv_block">
+            <input type="text" class="cv_input" placeholder="Email" />
+            <input type="text" class="cv_input" placeholder="Company" />
+          </div>
+          <div class="cv_block">
+            <input
+              type="text"
+              class="cv_textfield"
+              placeholder="How can we help?"
+            />
+          </div>
+          <div class="cv_button">
+            <p class="cv_send">Send</p>
+          </div>
+        </div>
+      </form>
     </div>
+    <div class="footer_lower">
+        <div class="logo_box">
+            <p class="footer_logo">Globalbit<span class="logo_underscore">_</span></p>
+            <p class="copyright">© Copyright 2021. All Rights Reserved.</p>
+        </div>
+        <div class="footer_column">
+            <p class="footer_column_heading">COMPANY</p>
+            <p class="footer_column_item">Home Page</p>
+            <p class="footer_column_item">About us</p>
+            <p class="footer_column_item">Projects</p>
+            <p class="footer_column_item">Blog</p>
+            <p class="footer_column_item">Careers</p>
+        </div>
+        <div class="footer_column">
+            <p class="footer_column_heading">SERVICE</p>
+            <p class="footer_column_item">Industry & trade</p>
+            <p class="footer_column_item">Govermental</p>
+            <p class="footer_column_item">Education</p>
+            <p class="footer_column_item">Business</p>
+        </div>
+        <div class="footer_column">
+            <p class="footer_column_heading">&nbsp;</p>
+            <p class="footer_column_item">Medical</p>
+            <p class="footer_column_item">Security</p>
+            <p class="footer_column_item">Retail</p>
+        </div>
+        <div class="footer_column">
+            <p class="footer_column_heading">SOLUTIONS</p>
+            <p class="footer_column_item">Web & Mobile</p>
+            <p class="footer_column_item">Enterprise Applications</p>
+            <p class="footer_column_item">IT Outsourcing</p>
+            <p class="footer_column_item">Studio</p>
+        </div>
+        <div class="footer_column">
+            <p class="footer_column_heading">&nbsp;</p>
+            <p class="footer_column_item">QA & Automation</p>
+            <p class="footer_column_item">DevOps & SecOps</p>
+            <p class="footer_column_item">Strategic consulting</p>
+        </div>
+    </div>
+  </div>
 </div>
