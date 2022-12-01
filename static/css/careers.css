@@ -260,10 +260,7 @@
     font-family: Simpler;
     font-size: 18px;
     color: #1d1b4c;
-}
-
-::placeholder {
-    transform: translateX(+10px);
+    text-indent: 20px;
 }
 
 .cv_block {
@@ -282,20 +279,17 @@
     font-family: Simpler;
     font-size: 18px;
     color: #1d1b4c;
+    text-indent: 20px;
 }
 
-.cv_button {
+.cv_send_btn {
     width: 168px;
     height: 57px;
+    border: none;
     border-radius: 5px;
     box-shadow: 5px 21px 40px 0 rgba(0, 0, 0, 0.2); 
     background-color: #00ffe6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.cv_send {
     font-family: Simpler;
     font-size: 20px;
     color: #1d1b4c;

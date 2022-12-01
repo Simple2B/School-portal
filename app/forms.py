@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy
 from django import forms
 
 from wagtail.users.forms import UserCreationForm
-from app.models import SchoolClassPage, User
+from app.models import SchoolClassPage, Candiadate, User
 
 from app.utils import create_profile
 
@@ -36,7 +36,24 @@ class CustomUserCreationForm(UserCreationForm):
         return user
 
 
-# class CareersApplyForm(forms.ModelForm):
-#     class Meta:
-#         model = User
-#         fields = ('username', 'phone', 'email',)
+class CareersApplyForm(forms.ModelForm):
+    class Meta:
+        model = Candiadate
+        fields = ("full_name", "phone_number", "email", "cv", "proposal")
+        widgets = {
+            "full_name": forms.TextInput(
+                attrs={"class": "cv_input", "placeholder": "Full name"}
+            ),
+            "phone_number": forms.TextInput(
+                attrs={"class": "cv_input", "placeholder": "Phone number"}
+            ),
+            "email": forms.TextInput(
+                attrs={"class": "cv_input", "placeholder": "Email"}
+            ),
+            "cv": forms.TextInput(
+                attrs={"class": "cv_input", "placeholder": "Upload CV"}
+            ),
+            "proposal": forms.TextInput(
+                attrs={"class": "cv_textfield", "placeholder": "How can we help?"}
+            ),
+        }

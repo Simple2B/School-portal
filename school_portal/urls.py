@@ -10,6 +10,7 @@ from search import views as search_views
 from django.conf.urls.i18n import i18n_patterns
 
 # from app.views import CustomSignupView
+from app.views import CareerApplyView
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
@@ -17,6 +18,7 @@ urlpatterns = [
     path("documents/", include(wagtaildocs_urls)),
     # NOTE make custom sign up/sign in or remove`
     # path('signup/', CustomSignupView.as_view()),
+    path("career_apply/", CareerApplyView.as_view()),
     path("", include("allauth.urls")),
 ]
 
