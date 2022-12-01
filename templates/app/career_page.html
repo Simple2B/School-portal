@@ -1,36 +1,35 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<div class="display_content">
+    <div class="content">
+        <div class="page_title">
+            <h1>{{ page.title }}</h1>
+        </div>
 
-
-{% block content %}
-    <div class="display_content">
-        <div class="content">
-            <div class="page_title">
-                <h1>{{ page.title }}</h1>
-            </div>
-            <div class="career_content">
-                <div>
-                    <p class="job_description">{{ page.question }}</p>
-                </div>
-                
-                <div>
-                    <p class="career_message">{{ page.message }}</p>
-                </div>
-                
-                <div>
-                    <p class="career_description">{{ page.phrase }}</p>
-                </div>
+        <div class="career_content">
+            <div>
+                <p class="job_description">{{ page.question }}</p>
             </div>
 
-            <div class="catgs">
-                {% for catg in categories %}
-                    <div class="catg">
-                        {{ catg }}
-                    </div>
-                {% endfor %}
-                <div class="catg">
-                    Check category
-                </div>
+            <div>
+                <p class="career_message">{{ page.message }}</p>
             </div>
+
+            <div>
+                <p class="career_description">{{ page.phrase }}</p>
+            </div>
+        </div>
+
+        <div class="catgs">
+            {% for catg in categories %}
+                {% with count=forloop.counter %}
+                {% if forloop.counter > 3 %}
+                    <div class="catg catg_{{count|add:'-3'}}">{{ catg }}</div>
+                {% else %}
+                    <div class="catg catg_{{count}}">{{ catg }}</div>
+                {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
         
             <div class="careers_block">
                 
@@ -50,30 +49,68 @@
                             </div>
                             <div class="apply_button"><p class="apply_button_text">Apply here</p></div>
                         </div>
+                        
                         <div class="career_requirements">
                             <p class="requirements_heading">Requirements</p>
                             <div class="career_content__item__adv">
-                                <ul>
-                                    <li class="requirement">Minimum 2 years of hands-on experience of creating React Native apps</li>
-                                    <li class="requirement">Experience building app using state managers like Redux/Mobx</li>
-                                    <li class="requirement">Ability to work both independently and within a team</li>
-                                    <li class="requirement">Willingness to learn and to share knowledge</li>
-                                    <li class="requirement">Can do attitude</li>
-                                    <li class="requirement">Junior with proved extensive knowledge and portfolio with live projects can apply</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Minimum 2 years of hands-on experience of creating React Native
+                                apps</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience building app using state managers like Redux/Mobx</p>
+                                </li>
+                                <p>■</p>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Ability to work both independently and within a team</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Willingness to learn and to share knowledge</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Can do attitude</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Junior with proved extensive knowledge and portfolio with live projects can apply</p>
+                                </li>
+                            </ul>
                             </div>
                             <p class="requirements_heading">Advantage</p>
                             <div class="career_content__item__disadv">
-                                <ul>
-                                    <li>Android experience</li>
-                                    <li>Backend experience</li>
-                                    <li>Experience writing and/or debugging web services</li>
-                                    <li>At least one publicly available application in the iTunes app store</li>
-                                    <li>B.sc. in Computer Science or Engineering degree</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Android experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Backend experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience writing and/or debugging web services</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">At least one publicly available application in the iTunes app
+                                store</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">B.sc. in Computer Science or Engineering degree</p>
+                                </li>
+                            </ul>
                             </div>
                         </div>
                     </div>
+                    <hr>
                 {% endfor %}
 
                 {% for car in UX_UI %}
@@ -92,30 +129,69 @@
                             </div>
                             <div class="apply_button"><p class="apply_button_text">Apply here</p></div>
                         </div>
+                        
                         <div class="career_requirements">
                             <p class="requirements_heading">Requirements</p>
                             <div class="career_content__item__adv">
-                                <ul>
-                                    <li class="requirement">Minimum 2 years of hands-on experience of creating React Native apps</li>
-                                    <li class="requirement">Experience building app using state managers like Redux/Mobx</li>
-                                    <li class="requirement">Ability to work both independently and within a team</li>
-                                    <li class="requirement">Willingness to learn and to share knowledge</li>
-                                    <li class="requirement">Can do attitude</li>
-                                    <li class="requirement">Junior with proved extensive knowledge and portfolio with live projects can apply</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Minimum 2 years of hands-on experience of creating React Native
+                                apps</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience building app using state managers like Redux/Mobx</p>
+                                </li>
+                                <p>■</p>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Ability to work both independently and within a team</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Willingness to learn and to share knowledge</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Can do attitude</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Junior with proved extensive knowledge and portfolio with live projects can apply</p>
+                                </li>
+                            </ul>
                             </div>
                             <p class="requirements_heading">Advantage</p>
                             <div class="career_content__item__disadv">
-                                <ul>
-                                    <li>Android experience</li>
-                                    <li>Backend experience</li>
-                                    <li>Experience writing and/or debugging web services</li>
-                                    <li>At least one publicly available application in the iTunes app store</li>
-                                    <li>B.sc. in Computer Science or Engineering degree</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Android experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Backend experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience writing and/or debugging web services</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">At least one publicly available application in the iTunes app
+                                store</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">B.sc. in Computer Science or Engineering degree</p>
+                                </li>
+                            </ul>
                             </div>
                         </div>
+
                     </div>
+                    <hr>
                 {% endfor %}
             
                 {% for car in Designer %}
@@ -134,30 +210,69 @@
                             </div>
                             <div class="apply_button"><p class="apply_button_text">Apply here</p></div>
                         </div>
+                        
                         <div class="career_requirements">
                             <p class="requirements_heading">Requirements</p>
                             <div class="career_content__item__adv">
-                                <ul>
-                                    <li class="requirement">Minimum 2 years of hands-on experience of creating React Native apps</li>
-                                    <li class="requirement">Experience building app using state managers like Redux/Mobx</li>
-                                    <li class="requirement">Ability to work both independently and within a team</li>
-                                    <li class="requirement">Willingness to learn and to share knowledge</li>
-                                    <li class="requirement">Can do attitude</li>
-                                    <li class="requirement">Junior with proved extensive knowledge and portfolio with live projects can apply</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Minimum 2 years of hands-on experience of creating React Native
+                                apps</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience building app using state managers like Redux/Mobx</p>
+                                </li>
+                                <p>■</p>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Ability to work both independently and within a team</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Willingness to learn and to share knowledge</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Can do attitude</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Junior with proved extensive knowledge and portfolio with live projects can apply</p>
+                                </li>
+                            </ul>
                             </div>
                             <p class="requirements_heading">Advantage</p>
                             <div class="career_content__item__disadv">
-                                <ul>
-                                    <li>Android experience</li>
-                                    <li>Backend experience</li>
-                                    <li>Experience writing and/or debugging web services</li>
-                                    <li>At least one publicly available application in the iTunes app store</li>
-                                    <li>B.sc. in Computer Science or Engineering degree</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Android experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Backend experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience writing and/or debugging web services</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">At least one publicly available application in the iTunes app
+                                store</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">B.sc. in Computer Science or Engineering degree</p>
+                                </li>
+                            </ul>
                             </div>
                         </div>
+
                     </div>
+                    <hr>
                 {% endfor %}
 
                 {% for car in Software_Development %}
@@ -176,36 +291,72 @@
                             </div>
                             <div class="apply_button"><p class="apply_button_text">Apply here</p></div>
                         </div>
+                        
                         <div class="career_requirements">
                             <p class="requirements_heading">Requirements</p>
                             <div class="career_content__item__adv">
-                                <ul>
-                                    <li class="requirement">Minimum 2 years of hands-on experience of creating React Native apps</li>
-                                    <li class="requirement">Experience building app using state managers like Redux/Mobx</li>
-                                    <li class="requirement">Ability to work both independently and within a team</li>
-                                    <li class="requirement">Willingness to learn and to share knowledge</li>
-                                    <li class="requirement">Can do attitude</li>
-                                    <li class="requirement">Junior with proved extensive knowledge and portfolio with live projects can apply</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Minimum 2 years of hands-on experience of creating React Native
+                                apps</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience building app using state managers like Redux/Mobx</p>
+                                </li>
+                                <p>■</p>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Ability to work both independently and within a team</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Willingness to learn and to share knowledge</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Can do attitude</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Junior with proved extensive knowledge and portfolio with live projects can apply</p>
+                                </li>
+                            </ul>
                             </div>
                             <p class="requirements_heading">Advantage</p>
                             <div class="career_content__item__disadv">
-                                <ul>
-                                    <li>Android experience</li>
-                                    <li>Backend experience</li>
-                                    <li>Experience writing and/or debugging web services</li>
-                                    <li>At least one publicly available application in the iTunes app store</li>
-                                    <li>B.sc. in Computer Science or Engineering degree</li>
-                                </ul>
+                            <ul class="requirements_list">
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Android experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Backend experience</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">Experience writing and/or debugging web services</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">At least one publicly available application in the iTunes app
+                                store</p>
+                                </li>
+                                <li class="requirement">
+                                <p>■</p>
+                                <p class="requirement_text">B.sc. in Computer Science or Engineering degree</p>
+                                </li>
+                            </ul>
                             </div>
                         </div>
                     </div>
+                    {% if forloop.counter < Software_Development|length %}
+                        <hr>
+                    {% endif %}
                 {% endfor %}
-            </div>
-        </div>
-            {{ page.body }}
 
-            <br>
             
             <div class="cv">
                 <form method="#" class="cv_form">
@@ -237,4 +388,7 @@
             <br>
 
     </div>
+        </div>
+            {{ page.body }}
+        </div>
 {% endblock %}

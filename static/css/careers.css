@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.cdnfonts.com/css/simpler');
 
 .content {
@@ -7,7 +7,7 @@
     /* min-width: 550px; */
     margin: 0 10% 50px 10%;
     font-family: Barlow;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .career_content {
@@ -26,14 +26,44 @@
 
 .catg {
     width: 200px;
-    height: 50px;
+    height: 70px;
     margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: 700;
+    color: #1d1b4c;
+    cursor: pointer;
+}
 
+.catg_1 {
     border: solid 3px #00cdb9;
-    background-color: #fff;
+}
+
+.catg_1:hover {
+    border: solid 3px #fff;
+    background-color: #00cdb9;
+    color: white;
+}
+
+.catg_2 {
+    border: solid 3px #1d1b4c;
+}
+
+.catg_2:hover {
+    border: solid 3px #fff;
+    background-color: #1d1b4c;
+    color: white;
+}
+
+.catg_3 {
+    border: solid 3px #dcbb7f;
+}
+
+.catg_3:hover {
+    border: solid 3px #fff;
+    background-color: #dcbb7f;
+    color: white;
 }
 
 .careers_content {
@@ -41,7 +71,7 @@
     flex-wrap: wrap;
     width: 100%;
     margin: 50px 10px;
-
+    color: #1d1b4c;
 }
 
 .career_name {
@@ -54,8 +84,25 @@
     min-width: 600px;
 }
 
+.requirements_list {
+    list-style: none;
+    list-style-type: none;
+}
+
+/* .requirement::before {
+    content: '■ ';
+} */
+
 .requirement {
+    display: flex;
     font-family: Barlow;
+    font-weight: 450;
+    color: #1d1b4c;
+}
+
+.requirement_text {
+    padding-left: 10px;
+    font-size: 18px;
 }
 
 .careers_block {
@@ -99,17 +146,19 @@
 }
 
 .apply_button {
+    height: 55px;
+    width: 167px;
+    /* padding: 2px 0 10px 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: Simpler;
     font-size: 20px;
-    text-align: center;
+    font-weight: 400;
     color: #1d1b4c;
-
-    width: 167px;
-    height: 55px;
     border-radius: 5px;
     box-shadow: 5px 21px 40px 0 rgba(0, 0, 0, 0.2);
     background-image: linear-gradient(107deg, #00ffe6 1%, #00f9d9 100%);
-    padding: 2px 0 10px 0;
 }
 
 .career_message {
@@ -144,8 +193,6 @@
         width: 450px;
     }
 }
-
-.catg:hover {background-color: #00cdb9; color: white}
 
 .page_title {
     height: 120px;

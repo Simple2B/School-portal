@@ -21,7 +21,7 @@ class CareerPage(Page):
             "Career 4",
         ]
         context["Designer"] = ["Career 5", "Career 6"]
-        context["Software_Development"] = ["Career 7"]
+        context["Software_Development"] = ["Career 7", "Career 8"]
         # context["careers"] = [
         #     "Career 1",
         #     "Career 2",
