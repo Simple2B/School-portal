@@ -15,15 +15,23 @@ class CareerPage(Page):
             "Designer",
             "Software Development",
         ]
-        context["careers"] = [
-            "Career 1",
-            "Career 2",
+        context["Managment"] = ["Career 1", "Career 2"]
+        context["UX_UI"] = [
             "Career 3",
             "Career 4",
-            "Career 5",
-            "Career 6",
-            "Career 7",
         ]
+        context["Designer"] = ["Career 5", "Career 6"]
+        context["Software_Development"] = ["Career 7"]
+        # context["careers"] = [
+        #     "Career 1",
+        #     "Career 2",
+        #     "Career 3",
+        #     "Career 4",
+        #     "Career 5",
+        #     "Career 6",
+        #     "Career 7",
+        # ]
+        print(context)
         return context
 
     question = models.CharField(max_length=255, default="")
