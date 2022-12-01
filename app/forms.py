@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.translation import gettext_lazy
+from django import forms
 
 from wagtail.users.forms import UserCreationForm
 from app.models import SchoolClassPage, User
@@ -33,3 +34,9 @@ class CustomUserCreationForm(UserCreationForm):
         user = super().save(commit=True)
         create_profile(user)
         return user
+
+
+# class CareersApplyForm(forms.ModelForm):
+#     class Meta:
+#         model = User
+#         fields = ('username', 'phone', 'email',)
