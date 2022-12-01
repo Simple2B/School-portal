@@ -10,7 +10,12 @@ class ProjectsPage(Page):
     def get_context(self, request):
         context = super().get_context(request)
         context["projects"] = [
-            "FastAPI Project",
+            {
+                "name": "FastAPI Project",
+                "description": "The Best FastAPI Project",
+                "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum distinctio nemo harum doloribus. Accusantium mollitia sapiente, quis alias rem aperiam. Unde dicta deleniti, explicabo eum aut nobis voluptates ex asperiores.",
+                "project_picture": "FastAPI Project",
+            },
             "JS Project",
             "Django Project",
             "ML Project",

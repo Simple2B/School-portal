@@ -6,8 +6,10 @@
         </div>
 
         <div class="projects_content">
-            <p>Projects Page text</p>        
+            <p>Projects Page text</p>
+            {% for project in projects %}
+                <div>{{ project }}</div>
+            {% endfor %}
         </div>
-
     </div>
 {% endblock %}
