@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+    <div class="display_content">
+        <div class="content">
+            <br>
+
+            <div class="cv">
+                <form method="POST" class="cv_form">
+                    {% csrf_token %}
+                    <div class="cv_container">
+                        <div class="cv_text">
+                            <p class="cv_title">Upload your CV</p>
+                            <p class="cv_slogan">You are one step closer to join us</p>
+                        </div>
+                        <div class="cv_block">
+                            {{ form.full_name }}
+                            {{ form.phone_number }}
+                        </div>
+                        <div class="cv_block">
+                            {{ form.email }}
+                            {{ form.cv }}
+                        </div>
+                        <div class="cv_block">
+                            {{ form.proposal }}
+                        </div>
+                        {{ form.errors }}
+                        <button type="submit" class="cv_send_btn">Send</button>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
