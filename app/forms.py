@@ -56,7 +56,9 @@ class CareersApplyForm(forms.ModelForm):
         }
 
     cv_file = forms.FileField()
+    uuid = forms.UUIDField()
 
     def __init__(self, *args, **kwargs):
         super(CareersApplyForm, self).__init__(*args, **kwargs)
         self.fields["cv_file"].widget.attrs.update({"class": "cv_upload_button"})
+        self.fields["uuid"].widget.attrs.update({"class": "hidden"})

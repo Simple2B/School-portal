@@ -31,19 +31,26 @@ class CustomSignupView(SignupView):
 class CareerApplyView(View):
     def get(self, request, *args, **kwargs):
         form = CareersApplyForm()
-        context = {"form": form}
+
+        career = Career.objects.first()
+        context = {"form": form, "career": career}
         return render(request, "forms/career_apply_form.html", context)
 
     def post(self, request, *args, **kwargs):
         form = CareersApplyForm(request.POST, request.FILES)
 
+        print(*args)
+        print(**kwargs)
+        print(request.POST)
+
         if form.is_valid():
+            print("IF")
             file = form.cleaned_data.get("cv_file")
             file_bytes = file.read()
 
             career_page = Career.objects.first()
             # NOTE in final version form will get career by id sended from template
-            # career_page = Career.objects.get(request.POST["career_id"])
+            # career_page = Career.objects.get(uuid=form["uuid"])
 
             candedate = Candiadate(
                 title=form.cleaned_data["full_name"]
@@ -57,8 +64,7 @@ class CareerApplyView(View):
                 career_object=career_page,
             )
             career_page.add_child(instance=candedate)
-            career_page.save()
             form = CareersApplyForm()
             return render(request, "forms/career_apply_form.html", {"form": form})
-
+        print("OUT")
         return render(request, "forms/career_apply_form.html", {"form": form})
