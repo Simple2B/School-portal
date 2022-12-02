@@ -14,7 +14,8 @@ from app.models.social_app_admin import SocialAppAdmin
 from app.models.social_auth_group import SocialAuthGroup
 from app.models.form_page import FormPage
 from app.models.career_page import CareerPage
-from app.models.projects import ProjectsPage
+from app.models.projects_page import ProjectsPage
+from app.models.project import Project
 from app.models.career import Career
 from app.models.requirements import Requirement
 from app.models.advantages import Advantage
