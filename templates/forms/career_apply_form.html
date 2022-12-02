@@ -6,7 +6,7 @@
             <br>
 
             <div class="cv">
-                <form method="POST" class="cv_form">
+                <form method="POST" class="cv_form" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="cv_container">
                         <div class="cv_text">
@@ -19,7 +19,8 @@
                         </div>
                         <div class="cv_block">
                             {{ form.email }}
-                            {{ form.cv }}
+                            <!-- {{ form.cv_file }} -->
+                            <div class="cv_input">{{ form.cv_file }}</div>
                         </div>
                         <div class="cv_block">
                             {{ form.proposal }}

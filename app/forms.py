@@ -39,7 +39,7 @@ class CustomUserCreationForm(UserCreationForm):
 class CareersApplyForm(forms.ModelForm):
     class Meta:
         model = Candiadate
-        fields = ("full_name", "phone_number", "email", "cv", "proposal")
+        fields = ("full_name", "phone_number", "email", "cv_file", "proposal")
         widgets = {
             "full_name": forms.TextInput(
                 attrs={"class": "cv_input", "placeholder": "Full name"}
@@ -50,10 +50,13 @@ class CareersApplyForm(forms.ModelForm):
             "email": forms.TextInput(
                 attrs={"class": "cv_input", "placeholder": "Email"}
             ),
-            "cv": forms.TextInput(
-                attrs={"class": "cv_input", "placeholder": "Upload CV"}
-            ),
             "proposal": forms.TextInput(
                 attrs={"class": "cv_textfield", "placeholder": "How can we help?"}
             ),
         }
+
+    cv_file = forms.FileField()
+
+    def __init__(self, *args, **kwargs):
+        super(CareersApplyForm, self).__init__(*args, **kwargs)
+        self.fields["cv_file"].widget.attrs.update({"class": "cv_upload_button"})

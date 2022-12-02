@@ -35,8 +35,12 @@ class CareerApplyView(View):
         return render(request, "forms/career_apply_form.html", context)
 
     def post(self, request, *args, **kwargs):
-        form = CareersApplyForm(data=request.POST)
+        form = CareersApplyForm(request.POST, request.FILES)
+
         if form.is_valid():
+            file = form.cleaned_data.get("cv_file")
+            file_bytes = file.read()
+
             career_page = Career.objects.first()
             # NOTE in final version form will get career by id sended from template
             # career_page = Career.objects.get(request.POST["career_id"])
@@ -47,7 +51,8 @@ class CareerApplyView(View):
                 full_name=form.cleaned_data["full_name"],
                 phone_number=form.cleaned_data["phone_number"],
                 email=form.cleaned_data["email"],
-                cv=form.cleaned_data["cv"],
+                cv_file=file_bytes,
+                cv_file_name=file.name,
                 proposal=form.cleaned_data["proposal"],
                 career_object=career_page,
             )
@@ -55,4 +60,5 @@ class CareerApplyView(View):
             career_page.save()
             form = CareersApplyForm()
             return render(request, "forms/career_apply_form.html", {"form": form})
+
         return render(request, "forms/career_apply_form.html", {"form": form})
