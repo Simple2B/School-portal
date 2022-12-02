@@ -2,6 +2,7 @@ from wagtail.models import Page
 from wagtail.admin.panels import FieldPanel
 from wagtail.fields import StreamField
 from django.db import models
+from .user import User
 
 from app.blocks.base_stream_block import BaseStreamBlock
 
@@ -39,6 +40,7 @@ class ProjectsPage(Page):
                 "project_picture": "projects/project_01.png",
             },
         ]
+        context["users"] = User.objects.all()
         return context
 
     question = models.CharField(max_length=255, default="")

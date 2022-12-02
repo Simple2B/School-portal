@@ -1,5 +1,11 @@
+.projects_content {
+width: 100%;
+}
+
 .project_block {
-    display: flex;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
     color: #183b56;
 }
 
@@ -30,6 +36,10 @@
     height: 50px;
     width: 150px;
     background-color: aqua;
+}
+
+.poject_picture {
+    min-width: 150px;
 }
 
 .project_image {
