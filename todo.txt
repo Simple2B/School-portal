@@ -1,9 +1,5 @@
-Header. Strech the background picture
-Header. Move picture to another div and layer
-Desktop menu underline
 Categories - Scroll to given section
 Categories - Fix Software development box
 Requirements & Advantages - Read more/Less in mobile version
-Footer
-Menu routing
 Mobile menu routing
+Apply buttons restore
