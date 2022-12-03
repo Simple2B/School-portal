@@ -1,19 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 <div class="display_content">
+    <div class="background_image projects_background_image"></div>
     <div class="content">
         <div class="page_title">
             <h1>{{ page.title }}</h1>
         </div>
-        <div>{{users}}</div>
 
         <div class="projects_content">
             <p>Projects Page text</p>
-            <p>MEDIA_URL - {{MEDIA_URL}}</p>
             {% for project in projects %}
                 {% if forloop.counter|divisibleby:2 %}
                     <div class="project_block">
                         <div class="poject_picture">
-                            <img class="project_image" src="/media/projects/project_01.png" alt="project_image">
+                            <img class="project_image" src="{{MEDIA_URL}}projects/project_0{{forloop.counter}}.png" alt="project_image">
                         </div>
                         <div class="project_details">
                             <p class="project_categorie logo_underscore">{{ project.categorie }}</p>

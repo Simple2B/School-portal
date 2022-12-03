@@ -11,16 +11,34 @@
         </div>
         <div class="menu">
             <ul class="menu_list">
-                <li class="menu_list__item">Solutions</li>
-                <li class="menu_list__item">Services</li>
-                <li class="menu_list__item">Projects</li>
-                <li class="menu_list__item">About us</li>
-                <li class="menu_list__item">Blog</li>
+                <li class="menu_list__item">
+                    <div class="careers_menu">Solutions</div>
+                    <div class="careers_highlight"></div>
+                </li>
+                <li class="menu_list__item">
+                    <div class="careers_menu">Services</div>
+                    <div class="careers_highlight"></div>
+                </li>
+                <li class="menu_list__item">
+                    <div class="careers_menu">Projects</div>
+                    <div class="careers_highlight"></div>
+                </li>
+                <li class="menu_list__item">
+                    <div class="careers_menu">About us</div>
+                    <div class="careers_highlight"></div>
+                </li>
+                <li class="menu_list__item">
+                    <div class="careers_menu">Blog</div>
+                    <div class="careers_highlight"></div>
+                </li>
                 <li class="menu_list__item">
                     <div class="careers_menu">Careers</div>
                     <div class="careers_highlight"></div>
                 </li>
-                <li class="menu_list__item">Contact us</li>
+                <li class="menu_list__item">
+                    <div class="careers_menu">Contact us</div>
+                    <div class="careers_highlight"></div>
+                </li>
             </ul>
         </div>
         <div class="features">
@@ -68,59 +86,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- <div class="navbar">
-    <div class="navbar__wrapper">
-        <div class="navbar__image">
-            <img src="https://cdn.dribbble.com/userupload/3158902/file/original-7c71bfa677e61dea61bc2acd59158d32.jpg?resize=400x0" alt="">
-        </div>
-        <div class="navbar__menu">
-            <div class="navbar__container">
-                {% for item in header_menu %}
-                    <a href="{% pageurl item %}">{{ item.title }}</a>
-                {% endfor %}
-
-                <a href="#">{% trans 'Login' %}</a>
-
-                <!-- {% if user.is_authenticated %}
-
-                    <div class="dropdown">
-                        <a href="{% slugurl 'profile-page' %}">{% trans 'Profile' %}</a>
-                        <div class="dropdown-content">
-                            {% if profile.school_class %}
-                                <a href="{% pageurl profile.school_class %}">{% trans 'Your class' %}</a>
-                            {% endif %}                            
-                            
-                            <a href="#">{% trans 'Galleries' %}</a>
-                            <a href="#">{% trans 'Schedule' %}</a>
-                        </div>
-                    </div> 
-
-                    <a href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
-                {% else %}
-                    <a href="{% url 'account_login' %}">{% trans 'Login' %}</a>
-                {% endif %} -->
-<!-- 
-            </div>
-            {% if contact_us %}
-                <a href="{% pageurl contact_us %}"> 
-                    <button class="contact_us">{% trans 'Contact us' %}</button>
-                </a>
-            {% else %}
-                <a href="#"> 
-                    <button class="contact_us">{% trans 'Contact us' %}</button>
-                </a>
-            {% endif %}
-        </div>
-    </div>
-</div> --> 
-
-
-<!-- TODO -->
-<!-- {{ profile.school_class.gallery_images.title }}
-{% image profile.school_class.gallery_images.image fill-320x240 %}
-{% for im in profile.school_class.gallery_images.all %}
-    <a href="{% pageurl im %}">{{ im }}</a>
-    {% image im.image fill-320x240 %}
-{% endfor %} -->

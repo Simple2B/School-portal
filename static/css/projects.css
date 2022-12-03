@@ -1,5 +1,11 @@
+.projects_background_image {
+    background-image: url(../../media/header_images/projects.png);
+    background-position: center;
+    background-size: cover;
+}
+
 .projects_content {
-width: 100%;
+    width: 100%;
 }
 
 .project_block {
