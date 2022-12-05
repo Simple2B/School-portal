@@ -92,4 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
         disableAllHiglights();
         contact_highlight.style.display = "block";
     });
+
+    // logo.addEventListener("click", function(event) {
+    //     alert("Click");
+    // });
 });
