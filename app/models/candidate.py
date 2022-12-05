@@ -19,7 +19,10 @@ class Candiadate(Page):
         ],
     )
     email = models.EmailField()
-    cv = models.TextField()
+
+    cv_file = models.BinaryField(editable=True, default=bytes("default value", "utf-8"))
+    cv_file_name = models.CharField(max_length=255, default="default cv file name")
+
     proposal = models.TextField()
     career_object = models.ForeignKey(Career, on_delete=models.PROTECT, null=True)
 
@@ -27,7 +30,8 @@ class Candiadate(Page):
         FieldPanel("full_name"),
         FieldPanel("phone_number"),
         FieldPanel("email"),
-        FieldPanel("cv"),
+        FieldPanel("cv_file"),
+        FieldPanel("cv_file_name"),
         FieldPanel("proposal"),
         FieldPanel("career_object"),
     ]

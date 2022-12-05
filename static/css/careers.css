@@ -300,3 +300,15 @@
     font-size: 20px;
     color: #1d1b4c;
 }
+
+.cv_upload_button {}
+
+.cv_upload_button {
+	position: relative;
+	overflow: hidden;
+	margin: 10px;
+}
+
+.hidden {
+    display: none;
+}
